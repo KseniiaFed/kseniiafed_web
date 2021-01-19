@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const InitialValue = 'empty'
+const InitialValue = ''
 
 const MyInput= (props) => {
   const { name } = props
@@ -18,7 +18,7 @@ const MyInput= (props) => {
 
   return (
     <div>
-      <input type="text" value={val} onChange={changeState} />
+      <input type="text" value={val} placeholder="start typing..." onChange={changeState} />
     </div>
   )
 

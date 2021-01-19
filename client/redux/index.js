@@ -10,17 +10,29 @@ import socketActions from './sockets'
 
 export const history = createHistory()
 
-const isBrowser = typeof window !== 'undefined'
+const isBrowser = typeof window !== 'undefined';
+
 
 const initialState = {}
 const enhancers = []
-const middleware = [thunk, routerMiddleware(history)]
+const middleware = [
+  thunk,
+  routerMiddleware(history)
+]
 
 const composeFunc = process.env.NODE_ENV === 'development' ? composeWithDevTools : compose
 
-const composedEnhancers = composeFunc(applyMiddleware(...middleware), ...enhancers)
+const composedEnhancers = composeFunc(
+  applyMiddleware(...middleware),
+  ...enhancers
+)
 
-const store = createStore(rootReducer(history), initialState, composedEnhancers)
+const store = createStore(
+  rootReducer(history),
+  initialState,
+  composedEnhancers
+)
+
 let socket
 
 if (typeof ENABLE_SOCKETS !== 'undefined' && ENABLE_SOCKETS) {

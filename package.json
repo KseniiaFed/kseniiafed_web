@@ -1,5 +1,5 @@
 {
-    "name": "kseniiafed_web",
+    "name": "ksenia",
     "version": "0.0.2",
     "description": "Kseniiafed-personal-website",
     "main": "index.js",
@@ -27,7 +27,7 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
-    "author": "",
+    "author": "kseniiafed <KseniiaFed@users.noreply.github.com>",
     "license": "MIT",
     "jest": {
         "setupFiles": [
@@ -89,6 +89,7 @@
         "express": "^4.17.1",
         "history": "^4.10.1",
         "prop-types": "^15.7.2",
+        "puppeteer": "^5.5.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-helmet": "^6.1.0",
@@ -171,5 +172,6 @@
             "pre-commit": "cross-env npm run lint && npm test",
             "pre-push": "cross-env npm run lint && npm test"
         }
-    }
+    },
+    "repository": "git@github.com:KseniiaFed/kseniiafed_web.git"
 }
