@@ -3,6 +3,7 @@ import Head from './head'
 import Header from './units/header'
 import HeroSection from './units/heroSection'
 import Cards from './units/cards'
+import Footer from './units/footer'
 
 
 const Dummy = () => {
@@ -16,11 +17,7 @@ const Dummy = () => {
       <Header />
       <HeroSection />
       <Cards />
-      <div className="flex items-center justify-center">
-        <div className="bg-indigo-800 hover:text-red-500 font-3xl text-white font-bold rounded-lg border shadow-lg p-10">
-          This is Ksenia`s personal website. Hello!
-        </div>
-      </div>
+      <Footer />
     </div>
   )
 }

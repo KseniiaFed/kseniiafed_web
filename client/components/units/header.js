@@ -41,7 +41,7 @@ const Header = () => {
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={
-            classnames("flex space-x-10", {
+            classnames("flex space-x-10 items-center", {
               'nav-menu active': click,
               'nav-menu': !click
             })
@@ -82,8 +82,8 @@ const Header = () => {
                 LOG IN
               </Link>
             </li>
+            {button && <Button buttonStyle="btn-outline">LOG IN</Button>}
           </ul>
-          {button && <Button buttonStyle="btn-outline">LOG IN</Button>}
         </div>
       </div>
     </div>

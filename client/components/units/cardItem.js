@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CardItem = (props) => {
   return (
-    <div>
+    <div className="pb-6">
       <li className="flex flex-1 rounded-lg my-0 mx-4">
         <Link to={props.path} className="flex flex-col w-full shadow-lg rounded-lg overflow-auto no-underline">
           <figure className="cards_item_pic" data-category={props.label}>
