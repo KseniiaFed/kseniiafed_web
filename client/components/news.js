@@ -1,12 +1,11 @@
 import React from 'react'
-import Header from './units/header'
 
 
 
 
 // import wave from '../assets/images/wave.jpg'
 
-const Map = (props) => {
+const News = (props) => {
  
   if (props.isRequesting) {
     return 'Wait a sec, requesting...'
@@ -14,17 +13,14 @@ const Map = (props) => {
 
   return (
     <div>
-      <Header />
       <br />
-      <div>
-        <h1> Hello World Dashboard </h1>
+      <div className="mt-20">
+        <h1> Hello World News / Blog </h1>
       </div>
-
-      
     </div>
   )
 }
 
-Map.propTypes = {}
+News.propTypes = {}
 
-export default Map
+export default News

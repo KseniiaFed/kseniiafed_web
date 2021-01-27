@@ -7,7 +7,12 @@ import { Switch, Route, Redirect, StaticRouter } from 'react-router-dom'
 
 import store, { history } from '../redux'
 
-import Map from '../components/map'
+import Header from '../components/units/header'
+import Footer from '../components/units/footer'
+import About from '../components/about'
+import Training from '../components/training'
+import Events from '../components/events'
+import News from '../components/news'
 import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
 import TodoApp from '../components/login'
@@ -73,14 +78,20 @@ const RootComponent = (props) => {
     <Provider store={store}>
       <RouterSelector history={history} location={props.location} context={props.context}>
         <Startup>
+        <Header />
+        <div className="mt-20">
           <Switch>
             <Route exact path="/" component={() => <DummyView />} />
-            <Route exact path="/map" component={() => <Map />} />
+            <Route exact path="/about" component={() => <About />} />
+            <Route exact path="/training" component={() => <Training />} />
+            <Route exact path="/events" component={() => <Events />} />
+            <Route exact path="/news" component={() => <News />} />
             <Route exact path="/login" component={() => <TodoApp />} />
             <Route exact path="/contact" component={() => <Contact />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
-          </Switch>
+          </Switch></div>
+          <Footer />
         </Startup>
       </RouterSelector>
     </Provider>

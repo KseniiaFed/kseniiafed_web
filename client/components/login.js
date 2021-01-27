@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { createStore } from 'redux'
 import NewInput from './input'
-import UserInfo from './users'
+import UserInfo from './about'
 import Header from './units/header'
 
 const TodoList = (props) => {
