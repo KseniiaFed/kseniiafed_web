@@ -3,7 +3,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-        'laboratory': "url('img-laboratory.jpg')",
+        'slide1': "url('slide1.jpg')",
+        'slide2': "url('slide2.jpg')",
+        'slide3': "url('slide3.jpg')",
+        'slide4': "url('slide4.jpg')",
+        'slide5': "url('slide5.jpg')",
         'microscope': "url('img-lab.jpg')"
       }),
       zIndex: {

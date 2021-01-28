@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from './head'
-import HeroSection from './units/heroSection'
+import ImageSlider from './units/imageSlider'
 import Cards from './units/cards'
 
 
@@ -12,7 +12,7 @@ const Dummy = () => {
   return (
     <div>
       <Head title="Hello" />
-      <HeroSection />
+      <ImageSlider />
       <Cards />
     </div>
   )

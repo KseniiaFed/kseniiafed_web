@@ -38,7 +38,13 @@ const Header = () => {
             <i className="fas fa-syringe" />
           </Link>
         </div> 
-        <div className="menu-icon" role="button" onClick={handleClick} tabIndex={0} onKeyDown={handleClick}>
+        <div 
+          className="md:hidden block text-3xl"
+          role="button"
+          onClick={handleClick}
+          tabIndex={0}
+          onKeyDown={handleClick}
+        >
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={
@@ -100,7 +106,7 @@ const Header = () => {
           <li className='nav-item'>
             <Link
               to="/login"
-              className='nav-links-mobile'
+              className='md:hidden block text-center my-8 mx-auto w-full py-3.5 rounded w-4/5 no-underline text-2xl bg-transparent transition-all duration-300 ease-in hover:bg-white hover:text-black hover:duration-200'
               onClick={closeMenuBar}
             >
               LOG IN

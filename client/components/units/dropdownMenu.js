@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const DropdownMenu = (props) => {
   return (
     <div 
-      className="flex flex-col w-full relative md:origin-top-right md:absolute md:left-0 mt-0 md:w-56 md:rounded-sm shadow-lg bg-black bg-opacity-50 ring-1 ring-black ring-opacity-5 divide-y divide-black" 
+      className="flex flex-col w-full relative text-center md:text-left md:origin-top-right md:absolute md:left-0 md:w-56 md:rounded-sm shadow-lg bg-black bg-opacity-50 ring-1 ring-black ring-opacity-5 divide-y divide-black" 
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="options-menu"
