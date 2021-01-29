@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Slide from './slide'
+import Arrow from './arrow'
 
 // import Button from './button'
 
@@ -29,9 +30,15 @@ const ImageSlider = () => {
   const prevSlideIndex = activeIndex ? activeIndex - 1 : slides.length - 1
   const nextSlideIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1
 
+  const swipeSlide = () => {
+
+  }
+
   return (
-    <div className="slider relative items-center max-h-24">
-      <div className="slider-content block box-border w-full max-h-24 m-0 h-52">
+    <div className="relative h-80">
+      <div className="relative block box-border w-full h-80 justify-between">
+          <Arrow direction="left" swipeSlide={swipeSlide} />
+          <Arrow direction="right" />
         <div
           className="slider-image-prev hidden"
           key={prevSlideIndex}
@@ -39,7 +46,7 @@ const ImageSlider = () => {
           {slides[prevSlideIndex]}
         </div>
         <div
-          className="slider-image w-full h-1/2 object-cover overflow-hidden"
+          className="w-full relative h-80 items-center"
           key={activeIndex}
         >
           {slides[activeIndex]}
