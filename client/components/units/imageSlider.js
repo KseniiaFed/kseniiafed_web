@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Slide from './slide'
 import Arrow from './arrow'
+import Dots from './dots'
 
 // import Button from './button'
 
@@ -23,22 +24,30 @@ const ImageSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex(activeIndex === slides.length - 1 ? 0 : activeIndex + 1)
-    }, 3000)
+    }, 4000)
     return () => clearInterval(interval)
   }, )
 
   const prevSlideIndex = activeIndex ? activeIndex - 1 : slides.length - 1
   const nextSlideIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1
 
-  const swipeSlide = () => {
+  const swipeSlideRight = () => {
+    setActiveIndex(activeIndex === slides.length - 1 ? 0 : activeIndex + 1)
+  }
+  const swipeSlideLeft = () => {
+    setActiveIndex(activeIndex === 0 ? slides.length - 1 : activeIndex - 1)
+  }
 
+  const dotHandler = (i) => {
+    setActiveIndex(i)
   }
 
   return (
     <div className="relative h-80">
       <div className="relative block box-border w-full h-80 justify-between">
-          <Arrow direction="left" swipeSlide={swipeSlide} />
-          <Arrow direction="right" />
+          <Arrow direction="left" swipeSlide={swipeSlideLeft} />
+          <Arrow direction="right" swipeSlide={swipeSlideRight} />
+          <Dots slides={slides} activeIndex={activeIndex} dotHandler={dotHandler}/>
         <div
           className="slider-image-prev hidden"
           key={prevSlideIndex}

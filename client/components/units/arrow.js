@@ -5,7 +5,7 @@ const Arrow = (props) => {
     <div
     role="button"
     onClick={props.swipeSlide}
-    onKeyDown={props.handleClick}
+    onKeyDown={props.swipeSlide}
     tabIndex={0}
     className={`
       flex
