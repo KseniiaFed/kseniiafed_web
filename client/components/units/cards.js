@@ -5,39 +5,34 @@ import './cards.scss'
 const Cards = () => {
   return (
     <div className='p-16 bg-white'>
-      <h1 className="text-center text-3xl font-bold">Check out these EPIC Vaccines!</h1>
-      <div className="flex flex-col md:flex-row items-center m-auto w-11/12 max-w-screen-xl">
-        <div className="relative m-12 border-2 border-red-500">
-          <ul className="mb-6">
-            <CardItem
-              src="images/img-infection.jpg"
-              text="Explore your true nature and unleash your hidden powers"
-              label="Products"
-              path="/about"
-            />
-             <CardItem
-              src="images/img-child.jpg"
-              text="Safety is a priority"
-              label="Products"
-              path="/about"
-            />
-          </ul>
+      <div className="flex flex-col space-y-16 xl:flex-row xl:space-y-0 items-center m-auto w-full">
+        <div className="relative w-full h-full justify-evenly xl:justify-around flex flex-col space-y-16 md:flex-row md:space-y-0 md:space-x-12 xl:space-x-2">
+          <CardItem
+            src="images/img-infection.jpg"
+            text="Grant Funding on courses"
+            label="About"
+            path="/about"
+          />
+          <CardItem
+            src="images/img-child.jpg"
+            text="Accredited Training Schedule"
+            label="Training"
+            path="/about"
+          />
         </div>
-        <div className="relative m-12 border-2 border-red-500">
-          <ul className="mb-6">
-            <CardItem
-              src="images/img-biology.jpg"
-              text="Technologies"
-              label="Products"
-              path="/about"
-            />
-             <CardItem
-              src="images/img-woman-mask.jpg"
-              text="Safety is a priority"
-              label="Products"
-              path="/about"
-            />
-          </ul>
+        <div className="relative w-full h-full justify-evenly xl:justify-around flex flex-col space-y-16 md:flex-row md:space-y-0 md:space-x-12 xl:space-x-2">
+          <CardItem
+            src="images/img-biology.jpg"
+            text="Courses on Demand"
+            label="Course request"
+            path="/about"
+          />
+          <CardItem
+            src="images/img-woman-mask.jpg"
+            text="Looking for work?"
+            label="Careers"
+            path="/about"
+          />
         </div>
       </div>
     </div>
