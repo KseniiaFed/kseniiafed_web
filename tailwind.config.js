@@ -12,7 +12,13 @@ module.exports = {
       }),
       zIndex: {
         '-1': '-1'
-      }
+      },
+      minWidth: {
+        '1/3': '33.333333%'
+       },
+       padding: {
+        aspect: '56.25%'
+       }
     }
   },
   variants: {

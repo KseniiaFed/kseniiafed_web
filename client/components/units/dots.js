@@ -25,11 +25,11 @@ const Dots = ({slides, activeIndex, dotHandler}) => {
         flex
         items-center
         justify-center
-        z-50
+        z-10
     ">
         {slides.map((slide, i) => (
-        <button key={slide} type="button" onClick={() => dotHandler(i)}>
-          <Dot key={slide} active={activeIndex === i} />
+        <button key={i} type="button" onClick={() => dotHandler(i)}>
+          <Dot key={i} active={activeIndex === i} />
         </button>
         ))}
     </div>
