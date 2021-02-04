@@ -3,6 +3,7 @@ import Head from './head'
 import ImageSlider from './units/imageSlider'
 import Cards from './units/cards'
 import Testimonials from './units/testimonials'
+import Blog from './units/blog'
 
 
 const Dummy = () => {
@@ -12,6 +13,7 @@ const Dummy = () => {
       <ImageSlider />
       <Cards />
       <Testimonials />
+      <Blog />
     </div>
   )
 }

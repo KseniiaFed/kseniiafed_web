@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="flex flex-col justify-center items-center bg-black py-8 px-0">
       <section className="flex flex-col items-center justify-center text-center mb-6 p-6 text-white">
         <p className="mb-2 text-2xl">
-          Join our Vaccination newsletter to receive our best product deals
+          Join our monthly newsletter to receive the best product deals
         </p>
         <p className="mb-6 text-sm">
           You can unsubscribe at any time.

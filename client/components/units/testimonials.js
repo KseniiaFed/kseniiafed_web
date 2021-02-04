@@ -14,9 +14,9 @@ const Testimonials = () => {
 
   return (
     <div className="relative flex flex-col lg:flex-row bg-gray-100">
-      <div className="border-2 border-red-800 m-16 w-full relative flex flex-col justify-evenly items-center space-y-12 lg:flex-row lg:space-x-16 lg:space-y-0">
-        <div className="relative rounded-lg max-w-md md:max-w-screen-sm md:min-w-1/3 md:max-h-96 bg-white shadow-lg">
-          <div className="relative p-4 flex flex-row border-1 bg-indigo-700 items-center rounded-t-lg">
+      <div className="m-16 w-auto lg:w-full relative flex flex-col justify-evenly items-center space-y-12 lg:flex-row lg:space-x-16 lg:space-y-0">
+        <div className="relative rounded-lg max-w-md self-start lg:self-center md:max-w-screen-sm md:min-w-1/3 md:max-h-96 bg-white shadow-lg">
+          <div className="relative p-4 flex flex-row border-1 bg-gradient-to-b from-gray-800 items-center rounded-t-lg">
             <div className="items-center justify-center ml-2">
               <img 
                 src="https://www.irishtimes.com/polopoly_fs/1.3170107.1501253408!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg"
@@ -26,7 +26,7 @@ const Testimonials = () => {
             </div>
             <div className="flex flex-col ml-4">
               <h1 className="text-lg text-white font-medium tracking-wider">Harry Potter</h1>
-              <h5 className="text-blue-500 text-sm font-semibold">Wizard from Hogwarts</h5>
+              <h5 className="text-gray-500 text-sm font-semibold">Wizard from Hogwarts</h5>
             </div>
           </div>
           <div className="md:max-h-72 overflow-auto">
@@ -37,7 +37,7 @@ const Testimonials = () => {
             </p>
           </div>
         </div>  
-        <div className="relative w-auto rounded-lg shadow-lg">
+        <div className="relative w-full rounded-lg shadow-lg">
           <Video url='https://www.youtube.com/watch?v=ysz5S6PUM-U' onProgress={handleWatchComplete}/>
           <div className="flex flex-row items-center pl-2 space-x-2 text-gray-600 font-bold bg-white">
             <i className={`fas fa-check ${ watchComplete ? `text-green-500` : `text-gray-600`}`}/>

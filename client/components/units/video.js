@@ -3,12 +3,14 @@ import ReactPlayer from 'react-player/lazy'
 
 export default function Video({url, onProgress}) {
   return (
-    <div className="w-auto object-contain h-auto">
+    <div className="relative h-0 w-full pt-aspect">
       <ReactPlayer
         url={url}
-        className="relative object-contain top-0 left-0"
+        className="absolute top-0 left-0"
         controls
         onProgress={onProgress}
+        height="100%"
+        width="100%"
       />
     </div>
   )
