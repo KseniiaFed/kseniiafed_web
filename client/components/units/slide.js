@@ -6,7 +6,7 @@ const Slide = (props) => {
   return (
     <div className={`bg-${props.background} bg-cover flex items-center justify-center relative w-full h-full`}>
       <div className="relative items-center">
-      <h1 className="text-white font-bold text-4xl md:text-6xl text-center">{props.header}</h1>
+      <h1 className="text-white font-bold text-4xl md:text-6xl text-center tracking-widest">{props.header}</h1>
       <p className="text-white text-lg md:text-2xl text-center">{props.text}</p>
       <div className="mt-6 flex flex-col items-center justify-center space-y-2 md:flex-row md:space-x-2 md:space-y-0">
         <Button className="btns" buttonStyle="btn-outline">GET STARTED</Button>

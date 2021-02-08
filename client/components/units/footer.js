@@ -67,7 +67,7 @@ const Footer = () => {
               VCCN <i className='fas fa-syringe' />
             </Link>
           </div>
-          <small className="mb-4">VCCN © 2021</small>
+          <small className="mb-4">VCCN &copy; 2021</small>
           <div className="flex justify-between items-center w-1/3 sm:text-2xl xl:text-3xl">
             <Link
               className="social-icon-link facebook" 
