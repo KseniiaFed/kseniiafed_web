@@ -9,6 +9,10 @@ import React from 'react'
 import cookieParser from 'cookie-parser'
 import config from './config'
 import Html from '../client/html'
+import mongooseConnect from './services/mongoose'
+import interactionRoutes from './routes/interactions'
+
+mongooseConnect()
 
 const Root = () => ''
 
@@ -50,6 +54,8 @@ const [htmlStart, htmlEnd] = Html({
   body: 'separator',
   title: 'Skillcrucial - Become an IT HERO'
 }).split('separator')
+
+server.use('/interactions/', interactionRoutes)
 
 server.get('/', (req, res) => {
   const appStream = renderToStaticNodeStream(<Root location={req.url} context={{}} />)
