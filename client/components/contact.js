@@ -6,8 +6,8 @@ import MyInput from './input'
 const Contact = () => {
   const [value, setValue] = useState('')
   const [text, setText] = useState('')
-  const [clickLog, clickLogChange] = useState('')
-  const [clickLog2, clickLog2Change] = useState('')
+  // const [clickLog, clickLogChange] = useState('')
+  // const [clickLog2, clickLog2Change] = useState('')
 
   // const onClick = (e) => {
   //   e.preventDefault();
@@ -24,18 +24,16 @@ const Contact = () => {
       <div className="text-4xl tracking-wider text-gray-800">
         <h1 className="p-6 self-center">Contact us</h1>
       </div>
-      <div className="contact-container flex flex-col w-full space-y-12 md:space-y-0 md:flex-row md:justify-evenly tracking-wide">
-        <div className="contact-address border-2 border-yellow-500">
+      <div className="px-6 pb-6 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:justify-between tracking-wide">
+        <div className="">
           <div className="space-y-2">
-            <h3 className="text-2xl text-gray-800">Company Name</h3>
+            <h3 className="text-2xl text-gray-900">Company Name</h3>
             <p className="text-gray-600 text-xl">
-              Address
+              37 the Cedars, Abberley,
               <br/>
-              Address
+              Shanganagh Road, Killiney,
               <br/>
-              Address
-              <br/>
-              Address
+              Co. Dublin, Ireland, A96 X662,
             </p>
             <p className="text-gray-600 text-xl">
               Tel.number:
@@ -43,7 +41,7 @@ const Contact = () => {
               Email:
             </p>
           </div>
-          <ul className="border border-green-500 flex flex-row mt-4 text-2xl space-x-6">
+          <ul className="flex flex-row mt-4 text-3xl space-x-6">
             <li>
               <Link
               className="social-icon-link facebook" 
@@ -95,63 +93,75 @@ const Contact = () => {
               </Link>
             </li>
           </ul>
-          <div className="contact-map border border-green-500 mt-12">
-            <h3 className="text-2xl underline text-gray-800">Find us</h3>
-            {/* <iframe>map</iframe> */}
-            Map Here
+          <div className="mt-12 divide-y-2 divide-gray-300">
+            <h3 className="mb-2 text-2xl text-gray-900">Find us</h3>
+            <div className="relative text-right h-auto w-auto">
+              <div className="mt-4 overflow-hidden bg-none h-auto w-auto aspect-w-24">
+                <iframe title="location" width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=37%20the%20cedars%20abberley%20killiney&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"/>
+              </div>
+            </div>
           </div>
         </div>
         <div className="contact-form border-2 border-indigo-500">
           <div>
-            <h3 className="text-2xl text-gray-800">Contact Form</h3>
-          <form className="mt-20" action="Contact-Form">
-            <label htmlFor="ename">Email:  </label>
-            <MyInput />
-            <button type="button" onClick={(val) => setValue(value + val)}>Submit</button>
-            { text }
-            <div>
-              <input
-                className="border border-gray-500"
-                type="input"
-                value={text}
-                onChange={changeTextBox}
-              />
-            </div>
-            <br />
-            <div>
-              <input
-                className="border border-gray-500"
-                type="password"
-                onChange={changeTextBox}
-              />
-            </div>
+            <h3 className="text-2xl text-gray-900">Contact Form</h3>
+            <form className="mt-12 space-y-6" action="Contact-Form">
+              <div>
+                <label htmlFor="ename">Your Name</label>
+                <MyInput />
+              </div>
+              <div>
+                <label htmlFor="ename">Your Email</label>
+                <MyInput />
+              </div>
+              <div>
+                <label htmlFor="ename">Your Phone</label>
+                <MyInput />
+              </div>
+              <div>
+                <label htmlFor="ename">Your Company</label>
+                <MyInput />
+              </div>
+              <div>
+                <label htmlFor="ename">Your Message</label>
+                <MyInput />
+              </div>
+              <button type="button" onClick={(val) => setValue(value + val)}>Submit</button>
+              { text }
+              <div>
+                <input
+                  className="border border-gray-500"
+                  type="input"
+                  value={text}
+                  onChange={changeTextBox}
+                />
+              </div>
 
-            <div onClick={() => {
-              clickLogChange(`${clickLog} parentDivClicked`)
-            }}
-              role="button"
-              tabIndex={0}
-              onKeyDown={() => {}}
-              className="border border-red-500"
-            >
-              clickMe
-              <div onClick={(e) => {
-                e.stopPropagation()
-                clickLog2Change(`${clickLog2} CHILD DIV`)
+              {/* <div onClick={() => {
+                clickLogChange(`${clickLog} parentDivClicked`)
               }}
                 role="button"
                 tabIndex={0}
                 onKeyDown={() => {}}
-                className="border border-blue-500"
+                className="border border-red-500"
               >
-                clickMe2 Gently
+                clickMe
+                <div onClick={(e) => {
+                  e.stopPropagation()
+                  clickLog2Change(`${clickLog2} CHILD DIV`)
+                }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={() => {}}
+                  className="border border-blue-500"
+                >
+                  clickMe2 Gently
+                </div>
               </div>
-            </div>
-
-            { clickLog }
-            <br />
-            { clickLog2 }
-          </form>
+              {clickLog}
+              <br />
+              {clickLog2} */}
+            </form>
           </div>
         </div>
       </div>

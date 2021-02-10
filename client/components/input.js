@@ -17,8 +17,8 @@ const MyInput= (props) => {
   }, [val, sessionField])
 
   return (
-    <div>
-      <input type="text" value={val} placeholder="start typing..." onChange={changeState} />
+    <div className="border border-gray-500">
+      <input className="border border-gray-500 max-w-4xl w-3/4 rounded-lg p-4" type="text" value={val} placeholder="start typing..." onChange={changeState} />
     </div>
   )
 

@@ -26,5 +26,7 @@ module.exports = {
       transform: ['hover']
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/aspect-ratio')
+  ]
 }
