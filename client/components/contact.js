@@ -5,7 +5,7 @@ import MyInput from './input'
 
 const Contact = () => {
   const [value, setValue] = useState('')
-  const [text, setText] = useState('')
+  // const [text, setText] = useState('')
   // const [clickLog, clickLogChange] = useState('')
   // const [clickLog2, clickLog2Change] = useState('')
 
@@ -13,19 +13,19 @@ const Contact = () => {
   //   e.preventDefault();
   //   e.stopPropagation();
 
-  const changeTextBox = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
+  // const changeTextBox = (e) => {
+  //   e.preventDefault()
+  //   e.stopPropagation()
 
-    setText(e.target.value) // введенное значение можем передать в кукис сешн(более безопасный)/локал сторадж манипуляции
-  }
+  //   setText(e.target.value) // введенное значение можем передать в кукис сешн(более безопасный)/локал сторадж манипуляции
+  // }
   return (
     <div>
-      <div className="text-4xl tracking-wider text-gray-800">
-        <h1 className="p-6 self-center">Contact us</h1>
-      </div>
-      <div className="px-6 pb-6 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:justify-between tracking-wide">
+      <div className="px-6 pb-6 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:space-x-12 lg:justify-between 2xl:justify-center 2xl:space-x-32 tracking-wide">
         <div className="">
+          <div className="text-4xl tracking-wider text-gray-800">
+            <h1 className="py-6 self-center">Contact us</h1>
+          </div>
           <div className="space-y-2">
             <h3 className="text-2xl text-gray-900">Company Name</h3>
             <p className="text-gray-600 text-xl">
@@ -102,41 +102,38 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="contact-form border-2 border-indigo-500">
-          <div>
-            <h3 className="text-2xl text-gray-900">Contact Form</h3>
-            <form className="mt-12 space-y-6" action="Contact-Form">
-              <div>
-                <label htmlFor="ename">Your Name</label>
-                <MyInput />
-              </div>
-              <div>
-                <label htmlFor="ename">Your Email</label>
-                <MyInput />
-              </div>
-              <div>
-                <label htmlFor="ename">Your Phone</label>
-                <MyInput />
-              </div>
-              <div>
-                <label htmlFor="ename">Your Company</label>
-                <MyInput />
-              </div>
-              <div>
-                <label htmlFor="ename">Your Message</label>
-                <MyInput />
-              </div>
-              <button type="button" onClick={(val) => setValue(value + val)}>Submit</button>
-              { text }
-              <div>
-                <input
-                  className="border border-gray-500"
-                  type="input"
-                  value={text}
-                  onChange={changeTextBox}
-                />
-              </div>
-
+        <div className="flex flex-col lg:w-1/2 lg:pt-20">
+          <h3 className="text-2xl text-gray-900 pt-2">Contact Form</h3>
+          <form className="mt-12 space-y-6 flex flex-col" action="Contact-Form">
+            <div>
+              <label htmlFor="username" className="font-bold">Your Name</label>
+              <MyInput inputStyle="inputDefault"/>
+            </div>
+            <div>
+              <label htmlFor="ename" className="font-bold">Your Email</label>
+              <MyInput inputStyle="inputDefault"/>
+            </div>
+            <div>
+              <label htmlFor="phone" className="font-bold">Your Phone</label>
+              <MyInput inputStyle="inputDefault"/>
+            </div>
+            <div>
+              <label htmlFor="companyname" className="font-bold">Your Company</label>
+              <MyInput inputStyle="inputDefault"/>
+            </div>
+            <div>
+              <label htmlFor="message" className="font-bold">Your Message</label>
+              <MyInput inputSyle="inputMessage"/>
+            </div>
+            <div className="relative flex justify-end w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg ">
+              <button
+                type="button"
+                onClick={(val) => setValue(value + val)}
+                className="border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-green-700 hover:bg-green-400"
+              >
+                Submit
+              </button>
+            </div>
               {/* <div onClick={() => {
                 clickLogChange(`${clickLog} parentDivClicked`)
               }}
@@ -161,8 +158,7 @@ const Contact = () => {
               {clickLog}
               <br />
               {clickLog2} */}
-            </form>
-          </div>
+          </form>
         </div>
       </div>
     </div>
