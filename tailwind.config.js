@@ -13,6 +13,10 @@ module.exports = {
       zIndex: {
         '-1': '-1'
       },
+      width: {
+        '150': '37.5rem'
+
+      },
       minWidth: {
         '1/3': '33.333333%'
        },

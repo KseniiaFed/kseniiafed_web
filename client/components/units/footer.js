@@ -1,30 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from './button'
-// import './footer.scss'
 
 const Footer = () => {
   return (
     <div className="flex flex-col justify-center items-center bg-black py-8 px-0">
-      <section className="flex flex-col items-center justify-center text-center mb-6 p-6 text-white">
-        <p className="mb-2 text-2xl">
-          Join our monthly newsletter to receive the best product deals
-        </p>
-        <p className="mb-6 text-sm">
-          You can unsubscribe at any time.
-        </p>
-        <div className="flex flex-col">
-          <form className="flex flex-col md:flex-row md:space-x-2">
-            <input
-              type="email" 
-              name="email" 
-              placeholder='Your Email' 
-              className='py-1 px-4 w-48 rounded-sm mr-2.5 outline-none border-none text-lg mb-4 placeholder-gray-400'
-            />
-            <Button buttonStyle="btn-outline">Subscribe</Button>
-          </form>
-        </div>
-      </section>
       <div className="w-full max-w-6xl flex flex-col md:flex-row text-white">
         <div className="flex items-start justify-around md:w-1/2">
           <div className="flex flex-col items-start m-4 text-left w-40 box-border">
