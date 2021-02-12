@@ -1,11 +1,4 @@
-.cards_item_pic {
-    position: relative;
-    width: 100%;
-    padding-top: 67%;
-    overflow: hidden;
-  }
-
-.cards_item_pic::after {
+figure::after {
     content: attr(data-category);
     position: absolute;
     bottom: 0;

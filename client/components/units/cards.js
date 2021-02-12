@@ -1,6 +1,6 @@
 import React from 'react'
 import CardItem from './cardItem'
-import './cards.scss'
+// import './cards.scss'
 
 const Cards = () => {
   return (

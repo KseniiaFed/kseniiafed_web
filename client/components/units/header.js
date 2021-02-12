@@ -16,7 +16,7 @@ const Header = () => {
   const handleDropdownMenu = () => setIsShown(!isShown)
   
   const showButton = () => {
-    if(window.innerWidth <= 783) {
+    if(window.innerWidth <= 768) {
       setButton(false)
     } else {
       setButton(true)

@@ -3,11 +3,11 @@
 }
 
 .btn-default {
-  @apply py-1 px-4 w-48 font-bold bg-white rounded-sm border;
+  @apply py-1 px-4 w-48 font-bold bg-white rounded-lg border;
 }
 
 .btn-outline {
-  @apply py-1 px-4 w-48 text-white font-bold bg-transparent rounded-sm border border-white ;
+  @apply py-1 px-6 text-white font-bold bg-transparent rounded-lg border border-white ;
   &:hover {
     @apply bg-white text-black transition ease-out duration-500 ;
   }
