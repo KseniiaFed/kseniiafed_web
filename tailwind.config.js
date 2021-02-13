@@ -20,9 +20,18 @@ module.exports = {
       minWidth: {
         '1/3': '33.333333%'
        },
-       padding: {
+      padding: {
         aspect: '56.25%'
-       }
+      },
+      animation: {
+        slide: 'slide 3s ease-in-out infinite',
+      },
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translate-x-0' },
+          '100%': { transform: 'translate-x-full' }
+        }
+      }
     }
   },
   variants: {

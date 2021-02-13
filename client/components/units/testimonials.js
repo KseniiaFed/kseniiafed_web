@@ -44,13 +44,13 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex(activeIndex === slides.length - 1 ? 0 : activeIndex + 1)
-    }, 3000)
+    }, 5000)
     return () => clearInterval(interval)
   }, )
 
   return (
     <div className="relative flex flex-col lg:flex-row bg-gray-100">
-      <div className="m-16 w-auto lg:w-full relative flex flex-col justify-evenly items-center space-y-12 lg:flex-row lg:space-x-16 lg:space-y-0">
+      <div className="m-16 w-auto lg:w-full relative flex flex-col justify-evenly items-center space-y-12 lg:flex-row lg:space-x-16 lg:space-y-0 overflow-hidden">
         <div
           className="w-full relative h-80 items-center"
           key={activeIndex}

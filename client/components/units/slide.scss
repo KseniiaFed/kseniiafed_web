@@ -1,0 +1,13 @@
+.slide {
+    animation-name: sliding;
+    animation-duration: 5s;
+    // animation-delay: 0s;
+  }
+  
+  @keyframes sliding {
+    0%   {right:-600px;}
+    20%  {right:0px}
+    50%  {right:0px}
+    80%  {right:0px}
+    100% {right:600px;}
+  }

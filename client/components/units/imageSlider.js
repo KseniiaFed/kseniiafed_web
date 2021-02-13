@@ -17,7 +17,7 @@ const ImageSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex(activeIndex === slides.length - 1 ? 0 : activeIndex + 1)
-    }, 4000)
+    }, 5000)
     return () => clearInterval(interval)
   }, )
 
