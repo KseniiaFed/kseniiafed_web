@@ -9,25 +9,26 @@ const Styles = ['inputDefault', 'inputMessage']
 
 const MyInput = ({placeholder, inputStyle, name}) => {
   const sessionField = `input-experimental-${name}`
-  const [val, changeVal] = useState(sessionStorage.getItem(sessionField) || InitialValue)
+  const [value, changeValue] = useState(sessionStorage.getItem(sessionField) || InitialValue)
+  // useReducer() для решения проблемы со стейтом 
   const changeState = ({ target }) => {
-    changeVal(target.value)
+    changeValue(target.value)
   }
 
   const checkInputStyle = Styles[0] === inputStyle ? inputDefault : inputFree
 
   useEffect(() => {
-    if (val !== InitialValue) {
-      sessionStorage.setItem(sessionField, val)
+    if (value !== InitialValue) {
+      sessionStorage.setItem(sessionField, value)
     }
-  }, [val, sessionField])
+  }, [value, sessionField])
 
   return (
-    <div className="">
+    <div>
       <input
         className={checkInputStyle}
         type="text"
-        value={val}
+        value={value}
         placeholder={placeholder}
         onChange={changeState}
       />

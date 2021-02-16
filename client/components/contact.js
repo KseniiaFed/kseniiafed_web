@@ -4,22 +4,34 @@ import { Link } from 'react-router-dom'
 import MyInput from './input'
 import './units/contact.scss'
 
+const initialInput = {
+  name: '',
+  email: '',
+  phone: '',
+  company: ''
+}
+
 const Contact = () => {
   const [value, setValue] = useState('')
-  // const [text, setText] = useState('')
-  // const [clickLog, clickLogChange] = useState('')
-  // const [clickLog2, clickLog2Change] = useState('')
+  // const [submitStyle, setSubmitStyle] = useState(unclickable)
+  const [inputState, setInputState] = useState(initialInput)
 
-  // const onClick = (e) => {
-  //   e.preventDefault();
-  //   e.stopPropagation();
+  // const unclickable = 'border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-gray-500'
+  // const clickable ='border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-green-500'
+  // const [text, setText] = useState('')
+
+  const inputChange = (e) => {
+    const nam = e.target.name
+    const val = e.target.value
+    setInputState({
+    ...inputState, [nam]: val
+    })
+  }
 
   // const changeTextBox = (e) => {
-  //   e.preventDefault()
-  //   e.stopPropagation()
-
-  //   setText(e.target.value) // введенное значение можем передать в кукис сешн(более безопасный)/локал сторадж манипуляции
+  //   setText(e.target.value)
   // }
+
   return (
     <div>
       <div className="px-8 py-8 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:space-x-12 lg:justify-between 2xl:justify-center 2xl:space-x-32 tracking-wide">
@@ -118,29 +130,30 @@ const Contact = () => {
           <form className="mt-12 flex flex-col" action="Contact-Form">
             <div className="space-y-6 flex flex-col">
               <div>
-                <label htmlFor="username" className="font-bold">Name<span className="text-green-600"> &#x0002A;</span></label>
-                <MyInput inputStyle="inputDefault" placeholder="Your name"/>
+                <label htmlFor="name" className="font-bold">Name<span className="text-green-600"> &#x0002A;</span></label>
+                <MyInput name="name" inputStyle="inputDefault" placeholder="Your name" onChange={inputChange}/>
               </div>
               <div>
-                <label htmlFor="ename" className="font-bold">Email<span className="text-green-600"> &#x0002A;</span></label>
-                <MyInput inputStyle="inputDefault" placeholder="Your email"/>
+                <label htmlFor="email" className="font-bold">Email<span className="text-green-600"> &#x0002A;</span></label>
+                <MyInput name="email" inputStyle="inputDefault" placeholder="Your email" onChange={inputChange}/>
               </div>
               <div>
                 <label htmlFor="phone" className="font-bold">Phone</label>
-                <MyInput inputStyle="inputDefault" placeholder="Your phone number"/>
+                <MyInput name="phone" inputStyle="inputDefault" placeholder="Your phone number" onChange={inputChange}/>
               </div>
               <div>
-                <label htmlFor="companyname" className="font-bold">Company</label>
-                <MyInput inputStyle="inputDefault" placeholder="Your company"/>
+                <label htmlFor="company" className="font-bold">Company</label>
+                <MyInput name="company" inputStyle="inputDefault" placeholder="Your company" onChange={inputChange}/>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="message" className="font-bold">Your Message<span className="text-green-600"> &#x0002A;</span></label>
+                <label htmlFor="contactMessage" className="font-bold">Your Message<span className="text-green-600">&#x0002A;</span></label>
                 <textarea
                   id="contactMessage"
                   name="contactMessage"
                   rows="6"
                   cols="50"
                   placeholder="Start typing..."
+                  onChange={() => {}}
                   className="border border-gray-500 rounded-lg p-4 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg"
                 />
               </div>
@@ -157,18 +170,23 @@ const Contact = () => {
                 <button
                   type="button"
                   onClick={(val) => setValue(value + val)}
-                  className="submit-button border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-gray-500"
+                  // className={submitStyle}
                 >
                   Submit
                 </button>
               </div>
             </div>
-            <div className="w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg">
-              <div className="submit-successful flex flex-col space-y-4 pt-12 pb-16 px-12 rounded-lg text-white font-bold">
-                <p>Form submitted successfully!</p>
-                <p>A confirmation email was sent to</p>
-              </div>
-            </div>
+            {/* { 
+              (submitted) && (
+                <div className="w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg">
+                  <div className="submit-successful flex flex-col space-y-4 pt-12 pb-16 px-12 rounded-lg text-white font-bold">
+                    <p>Form submitted successfully!</p>
+                    <p>A confirmation email was sent to</p>
+                  </div>
+                </div>
+              )
+            } */}
+            
 
               {/* <div onClick={() => {
                 clickLogChange(`${clickLog} parentDivClicked`)
