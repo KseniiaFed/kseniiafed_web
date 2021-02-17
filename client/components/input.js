@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './units/contact.scss'
 
 const InitialValue = ''
 
@@ -7,12 +8,13 @@ const inputFree = "border border-gray-300 w-full sm:w-5/6 md:w-full rounded-lg p
 const Styles = ['inputDefault', 'inputMessage']
 
 
-const MyInput = ({placeholder, inputStyle, name}) => {
+const MyInput = ({placeholder, inputStyle, name, validate}) => {
   const sessionField = `input-experimental-${name}`
   const [value, changeValue] = useState(sessionStorage.getItem(sessionField) || InitialValue)
-  // useReducer() для решения проблемы со стейтом 
   const changeState = ({ target }) => {
     changeValue(target.value)
+    validate(target)
+    console.log(target)
   }
 
   const checkInputStyle = Styles[0] === inputStyle ? inputDefault : inputFree
