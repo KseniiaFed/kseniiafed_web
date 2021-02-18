@@ -17,15 +17,3 @@
   }
   background-color: #3c7a54;
 }
-
-.submit-successful {
-  background-color: #68D391;
-}
-
-input:invalid:required + .invalid {
-  @apply block
-}
-
-input:valid + .invalid {
-  @apply hidden
-}

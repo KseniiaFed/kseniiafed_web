@@ -1,59 +1,60 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import ContactForm from './units/contactForm'
 // import PropTypes from 'prop-types'
-import MyInput from './input'
+// import MyInput from './input'
 import './units/contact.scss'
 
-const initialInput = {
-  name: '',
-  email: '',
-  phone: '',
-  company: '',
-  errormessage: ''
-}
+// const initialInput = {
+//   name: '',
+//   email: '',
+//   phone: '',
+//   company: '',
+//   errormessage: ''
+// }
 
 const Contact = () => {
-  const [value, setValue] = useState('')
+  // const [value, setValue] = useState('')
   // const [submitStyle, setSubmitStyle] = useState(unclickable)
-  const [inputState, setInputState] = useState(initialInput)
-  const [inputError, setInputError] = useState(false)
+  // const [inputState, setInputState] = useState(initialInput)
+  // const [inputError, setInputError] = useState(false)
 
-  const errorBlock = () => {
-    setInputError(true)
-  }
-  const validate = (target) => {
-    if (target.name.length === false) {
-      errorBlock()
-    }
-  }
+  // const errorBlock = () => {
+  //   setInputError(true)
+  // }
+  // const validate = (target) => {
+  //   if (target.name.length === false) {
+  //     errorBlock()
+  //   }
+  // }
 
   // const unclickable = 'border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-gray-500'
   // const clickable ='border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-green-500'
   // const [text, setText] = useState('')
 
-  const submitForm = (e) => {
-    e.preventDefault()
-    // const nameField = e.target.name
-    // const emailField = e.target.email
-    console.log(e.target)
-    validate()
-  }
+  // const submitForm = (e) => {
+  //   e.preventDefault()
+  //   // const nameField = e.target.name
+  //   // const emailField = e.target.email
+  //   console.log(e.target)
+  //   validate()
+  // }
 
-  const inputChange = (e) => {
-    const nam = e.target.name
-    const val = e.target.value
-    // let err = ''
-    // if (nam === 'email') {
-    //   if (val === "" && `${/^S+@S+.S+$/}`) {
-    //     err = <span>Please input valid email</span>
-    //   }
-    // }
-    setInputState({
-      ...inputState,
-      // errormessage: err,
-      [nam]: val
-    })
-  }
+  // const inputChange = (e) => {
+  //   const nam = e.target.name
+  //   const val = e.target.value
+  //   // let err = ''
+  //   // if (nam === 'email') {
+  //   //   if (val === "" && `${/^S+@S+.S+$/}`) {
+  //   //     err = <span>Please input valid email</span>
+  //   //   }
+  //   // }
+  //   setInputState({
+  //     ...inputState,
+  //     // errormessage: err,
+  //     [nam]: val
+  //   })
+  // }
 
   return (
     <div>
@@ -150,114 +151,7 @@ const Contact = () => {
         </div>
         <div className="flex flex-col lg:w-1/2 lg:pt-20">
           <h3 className="text-2xl text-gray-900 pt-2">Contact Form</h3>
-          <form
-            className="mt-12 flex flex-col"
-            action="Contact-Form"
-            onSubmit={submitForm}
-          >
-            <div className="space-y-6 flex flex-col">
-              <div>
-                <label htmlFor="name" className="font-bold flex flex-row space-x-2">
-                  Name
-                  <span className="ml-1 text-green-600">&#x0002A;</span>
-                  <span className={`${ inputError ? "block" : "hidden" } text-green-600`}> This field is required</span>
-                </label>
-                <MyInput
-                  name="name"
-                  inputStyle="inputDefault"
-                  placeholder="Your name"
-                  onChange={inputChange}
-                  validate={validate}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="font-bold flex flex-row space-x-2">
-                  Email
-                  <span className="ml-1 text-green-600">&#x0002A;</span>
-                  {inputState.errormessage}
-                  <span className={`${ inputError ? "block" : "hidden" } text-green-600`}> This field is required</span>
-                </label>
-                <MyInput
-                  name="email"
-                  inputStyle="inputDefault"
-                  placeholder="Your email"
-                  onChange={inputChange}
-                  required
-                  pattern="/^\S+@\S+\.\S+$/"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="font-bold">
-                  Phone
-                </label>
-                <MyInput
-                  name="phone"
-                  type="number"
-                  inputStyle="inputDefault"
-                  placeholder="Your phone number"
-                  onChange={inputChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="company" className="font-bold">
-                  Company
-                </label>
-                <MyInput
-                  name="company"
-                  inputStyle="inputDefault"
-                  placeholder="Your company"
-                  onChange={inputChange}
-                />
-              </div>
-              <div className="flex flex-col">
-                <label htmlFor="contactMessage" className="flex flex-row space-x-2 font-bold">
-                  Your Message
-                  <span className="ml-1 text-green-600">&#x0002A;</span>
-                  <span className={`${ inputError ? "block" : "hidden" } text-green-600`}> This field is required</span>
-                </label>
-                <textarea
-                  id="contactMessage"
-                  name="contactMessage"
-                  rows="6"
-                  cols="50"
-                  placeholder="Start typing..."
-                  onChange={() => {}}
-                  required
-                  className="border border-gray-500 rounded-lg p-4 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg"
-                />
-              </div>
-              <div className="w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg">
-                <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                  <label htmlFor="toggle">
-                    <input type="checkbox" name="toggle" id="toggle" className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-                    <div className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-200 cursor-pointer"/>
-                  </label>  
-                </div>
-                <span className="text-xs text-gray-700">I agree to the Privacy Policy and Cookie Policy</span>
-              </div>
-              <div className="relative lg:pt-2 flex justify-end w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg ">
-                <input
-                  type="submit"
-                  value="Submit"
-                  onClick={(val) => setValue(value + val)}
-                  // className={submitStyle}
-                />
-                  {/* Submit
-                </input> */}
-              </div>
-            </div>
-            {/* { 
-              (submitted) && (
-                <div className="w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg">
-                  <div className="submit-successful flex flex-col space-y-4 pt-12 pb-16 px-12 rounded-lg text-white font-bold">
-                    <p>Form submitted successfully!</p>
-                    <p>A confirmation email was sent to</p>
-                  </div>
-                </div>
-              )
-            } */}
-          </form>
+          <ContactForm />
         </div>
       </div>
     </div>
