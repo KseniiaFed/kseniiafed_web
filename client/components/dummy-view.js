@@ -6,7 +6,6 @@ import Testimonials from './units/testimonials'
 import Blog from './units/blog'
 import Subscription from './units/subscription'
 
-
 const Dummy = () => {
   return (
     <div>

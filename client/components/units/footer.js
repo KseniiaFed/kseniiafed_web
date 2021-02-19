@@ -42,57 +42,50 @@ const Footer = () => {
       <section className="w-full text-white">
         <div className="flex flex-row justify-between items-center max-w-6xl w-11/12 mt-10 mx-auto">
           <div className="footer-logo">
-            <Link to="/" className='cursor-pointer justify-self-start ml-5 text-4xl no-underline flex self-center mb-4'>
-              VCCN <i className='fas fa-syringe' />
+            <Link
+              to="/"
+              className="cursor-pointer justify-self-start ml-5 text-4xl no-underline flex self-center mb-4"
+            >
+              VCCN <i className="fas fa-syringe" />
             </Link>
           </div>
           <small className="mb-4">VCCN &copy; 2021</small>
           <div className="flex justify-between items-center w-1/3 sm:text-2xl xl:text-3xl">
             <Link
-              className="social-icon-link facebook" 
-              to="/" 
+              className="social-icon-link facebook"
+              to="/"
               target="_blank"
-              aria-label='Facebook'
+              aria-label="Facebook"
             >
-               <i className="fab fa-facebook-f" />
+              <i className="fab fa-facebook-f" />
             </Link>
             <Link
-              className="social-icon-link instagram" 
-              to="/" 
+              className="social-icon-link instagram"
+              to="/"
               target="_blank"
-              aria-label='Instagram'
+              aria-label="Instagram"
             >
-               <i className="fab fa-instagram" />  
+              <i className="fab fa-instagram" />
+            </Link>
+            <Link className="social-icon-link youtube" to="/" target="_blank" aria-label="Youtube">
+              <i className="fab fa-youtube" />
+            </Link>
+            <Link className="social-icon-link twitter" to="/" target="_blank" aria-label="Twitter">
+              <i className="fab fa-twitter" />
             </Link>
             <Link
-              className="social-icon-link youtube" 
-              to="/" 
+              className="social-icon-link linkedin"
+              to="/"
               target="_blank"
-              aria-label='Youtube'
+              aria-label="Linkedin"
             >
-               <i className="fab fa-youtube" />  
-            </Link>
-            <Link
-              className="social-icon-link twitter" 
-              to="/" 
-              target="_blank"
-              aria-label='Twitter'
-            >
-               <i className="fab fa-twitter" />  
-            </Link>
-            <Link
-              className="social-icon-link linkedin" 
-              to="/" 
-              target="_blank"
-              aria-label='Linkedin'
-            >
-               <i className="fab fa-linkedin" />  
+              <i className="fab fa-linkedin" />
             </Link>
           </div>
         </div>
       </section>
     </div>
-  )    
+  )
 }
 
 export default Footer

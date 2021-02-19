@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactPlayer from 'react-player/lazy'
 
-export default function Video({url, onProgress}) {
+export default function Video({ url, onProgress }) {
   return (
     <div className="relative h-0 w-full pt-aspect">
       <ReactPlayer

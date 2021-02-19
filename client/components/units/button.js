@@ -15,7 +15,7 @@ const Button = ({
   return (
     <Link to="/login" className="btn-login">
       <button
-        className={`btn ${checkButtonStyle}`}
+        className={`btn ${checkButtonStyle} focus:outline-none`}
         onClick={onClick}
         type="button"
       >

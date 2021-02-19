@@ -5,11 +5,14 @@
 
 @tailwind utilities;
 
-// * {
-//     box-sizing: border-box;
-//     margin: 0;
-//     padding: 0;
-//     font-family: 'PT Sans', sans-serif;
-//   }
+* { a:active, a:focus { outline: none; }
+
+    input, textarea {outline:none;}
+    input:active, textarea:active {outline:none;}
+    :focus {outline:none;}
+    textarea {resize:none;}
+    textarea {resize:vertical;}
+    textarea {resize:horizontal;}
+  }
 
   

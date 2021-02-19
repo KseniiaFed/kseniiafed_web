@@ -19,7 +19,7 @@ export default (mongoURL = mongo) => {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
-  
+
   mongoose.set('useCreateIndex', true)
 
   return mongoose.connection

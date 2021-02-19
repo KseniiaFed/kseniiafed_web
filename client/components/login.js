@@ -7,8 +7,11 @@ import Header from './units/header'
 const TodoList = (props) => {
   return (
     <ul>
-      {props.items.map(it => (
-        <li key={it.id}><input type="checkbox" />{it.text}</li>
+      {props.items.map((it) => (
+        <li key={it.id}>
+          <input type="checkbox" />
+          {it.text}
+        </li>
       ))}
     </ul>
   )
@@ -19,11 +22,11 @@ const TodoApp = () => {
     items: [],
     text: ''
   })
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (state.text.length === 0) {
-      return;
+      return
     }
     const newItem = {
       text: state.text,
@@ -33,21 +36,18 @@ const TodoApp = () => {
       items: state.items.concat(newItem),
       text: ''
     }))
-  } 
-  
-  
-  const handleChange = (e) => {
-    setState({...state, text: e.target.value})
   }
-  
-  
-  
+
+  const handleChange = (e) => {
+    setState({ ...state, text: e.target.value })
+  }
+
   return (
     <div className="bg-microscope">
       <Header />
       <UserInfo />
       <div className="p-5 bg-green-600">
-        <p>TO DO LIST</p>  
+        <p>TO DO LIST</p>
       </div>
       <div className="mt-1 relative rounded-md shadow-sm bg-green-200">
         <form onSubmit={handleSubmit}>
@@ -66,19 +66,20 @@ const TodoApp = () => {
           />
           <br />
           <button type="button" onClick={handleSubmit}>
-            ADD 
+            ADD
           </button>
         </form>
       </div>
-        <div className="p-20">
-          <NewInput name="input1"/>
-        </div>
       <div className="p-20">
-        <div><NewInput name="input2"/></div>
+        <NewInput name="input1" />
+      </div>
+      <div className="p-20">
+        <div>
+          <NewInput name="input2" />
+        </div>
       </div>
     </div>
   )
 }
-
 
 export default TodoApp

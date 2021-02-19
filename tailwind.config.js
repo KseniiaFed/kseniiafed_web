@@ -20,6 +20,10 @@ module.exports = {
       minWidth: {
         '1/3': '33.333333%'
        },
+      height: {
+        '128': '32rem'
+
+      },
       padding: {
         aspect: '56.25%'
       },

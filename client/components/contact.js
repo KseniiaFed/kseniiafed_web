@@ -2,63 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ContactForm from './units/contactForm'
 // import PropTypes from 'prop-types'
-// import MyInput from './input'
-import './units/contact.scss'
-
-// const initialInput = {
-//   name: '',
-//   email: '',
-//   phone: '',
-//   company: '',
-//   errormessage: ''
-// }
 
 const Contact = () => {
-  // const [value, setValue] = useState('')
-  // const [submitStyle, setSubmitStyle] = useState(unclickable)
-  // const [inputState, setInputState] = useState(initialInput)
-  // const [inputError, setInputError] = useState(false)
-
-  // const errorBlock = () => {
-  //   setInputError(true)
-  // }
-  // const validate = (target) => {
-  //   if (target.name.length === false) {
-  //     errorBlock()
-  //   }
-  // }
-
-  // const unclickable = 'border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-gray-500'
-  // const clickable ='border mr-0 rounded-full py-3 px-6 text-center text-white font-bold bg-green-500'
-  // const [text, setText] = useState('')
-
-  // const submitForm = (e) => {
-  //   e.preventDefault()
-  //   // const nameField = e.target.name
-  //   // const emailField = e.target.email
-  //   console.log(e.target)
-  //   validate()
-  // }
-
-  // const inputChange = (e) => {
-  //   const nam = e.target.name
-  //   const val = e.target.value
-  //   // let err = ''
-  //   // if (nam === 'email') {
-  //   //   if (val === "" && `${/^S+@S+.S+$/}`) {
-  //   //     err = <span>Please input valid email</span>
-  //   //   }
-  //   // }
-  //   setInputState({
-  //     ...inputState,
-  //     // errormessage: err,
-  //     [nam]: val
-  //   })
-  // }
-
   return (
     <div>
-      <div className="px-8 py-8 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:space-x-12 lg:justify-between 2xl:justify-center 2xl:space-x-32 tracking-wide">
+      <div className="px-8 py-8 mb-16 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:space-x-12 lg:justify-between 2xl:justify-center 2xl:space-x-32 tracking-wide">
         <div className="">
           <div className="text-4xl tracking-wider text-gray-800">
             <h1 className="py-6 self-center">Contact us</h1>

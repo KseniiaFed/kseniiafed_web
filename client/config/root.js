@@ -78,19 +78,20 @@ const RootComponent = (props) => {
     <Provider store={store}>
       <RouterSelector history={history} location={props.location} context={props.context}>
         <Startup>
-        <Header />
-        <div className="mt-20">
-          <Switch>
-            <Route exact path="/" component={() => <DummyView />} />
-            <Route exact path="/about" component={() => <About />} />
-            <Route exact path="/training" component={() => <Training />} />
-            <Route exact path="/events" component={() => <Events />} />
-            <Route exact path="/news" component={() => <News />} />
-            <Route exact path="/login" component={() => <TodoApp />} />
-            <Route exact path="/contact" component={() => <Contact />} />
-            <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
-            <Route component={() => <NotFound />} />
-          </Switch></div>
+          <Header />
+          <div className="mt-20">
+            <Switch>
+              <Route exact path="/" component={() => <DummyView />} />
+              <Route exact path="/about" component={() => <About />} />
+              <Route exact path="/training" component={() => <Training />} />
+              <Route exact path="/events" component={() => <Events />} />
+              <Route exact path="/news" component={() => <News />} />
+              <Route exact path="/login" component={() => <TodoApp />} />
+              <Route exact path="/contact" component={() => <Contact />} />
+              <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
+              <Route component={() => <NotFound />} />
+            </Switch>
+          </div>
           <Footer />
         </Startup>
       </RouterSelector>

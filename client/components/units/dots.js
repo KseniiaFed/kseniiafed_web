@@ -28,7 +28,7 @@ const Dots = ({slides, activeIndex, dotHandler}) => {
         z-10
     ">
         {slides.map((slide, i) => (
-        <button key={i} type="button" onClick={() => dotHandler(i)}>
+        <button key={i} type="button" onClick={() => dotHandler(i)} className="focus:outline-none">
           <Dot key={i} active={activeIndex === i} />
         </button>
         ))}
