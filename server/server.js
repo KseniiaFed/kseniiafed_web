@@ -52,7 +52,7 @@ server.use('/api/', (req, res) => {
 
 const [htmlStart, htmlEnd] = Html({
   body: 'separator',
-  title: 'Skillcrucial - Become an IT HERO'
+  title: 'Skillset - Level Up Your Knowledge'
 }).split('separator')
 
 server.use('/interactions/', interactionRoutes)

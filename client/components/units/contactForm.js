@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useFormik } from 'formik'
 
 const unclickable = 'border mr-0 focus:outline-none rounded-full py-3 px-6 text-center text-white font-bold bg-gray-400'
@@ -33,13 +33,21 @@ const ContactForm = () => {
   const [submitButton, setSubmitButton] = useState(unclickable)
   const [toggleStyle, setToggleStyle] = useState(false)
 
-  const formik = useFormik({
+  const formikRef = useRef()
+
+  const sessionName = 'name'
+  const sessionEmail = 'email'
+  const sessionMessage = 'message'
+  const sessionCompany = 'company'
+  const sessionPhone = 'phone'
+
+  formikRef.current = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: ''
+      name: sessionStorage.getItem(sessionName) || '',
+      email: sessionStorage.getItem(sessionEmail) || '',
+      phone: sessionStorage.getItem(sessionPhone) || '',
+      company: sessionStorage.getItem(sessionCompany) || '',
+      message: sessionStorage.getItem(sessionMessage) || ''
     },
     validate,
     onSubmit: (values) => {
@@ -47,20 +55,38 @@ const ContactForm = () => {
       setSubmitted(true)
     }
   })
+  const formik = formikRef.current
+
   const handleToggleStyle = () => {
     setToggleStyle(!toggleStyle)
   }
 
-  useEffect (() => {
-    if (formik.values.name.length && formik.values.email.length && formik.values.message.length && (Object.keys(formik.errors).length === 0) && toggleStyle) {
-          setSubmitButton(clickable)
-        }
-      const timeout = setTimeout(() => {console.log(formik.values.message.length)}, 1000)
+  useEffect(() => {
+    if (
+      formik.values.name.length &&
+      formik.values.email.length &&
+      formik.values.message.length &&
+      Object.keys(formik.errors).length === 0 &&
+      toggleStyle
+    ) {
+      setSubmitButton(clickable)
+    }
     return () => {
-      clearTimeout(timeout)
       setSubmitButton(unclickable)
     }
-  }, [formik.values, formik.values.name.length, toggleStyle])
+  }, [formik.values, formik.values.name.length, formik.errors, toggleStyle])
+
+  useEffect(() => {
+    if (formik.values.message !== formik.initialValues.message) {
+      sessionStorage.setItem(sessionMessage, formikRef.current.values.message)
+    } else if (formik.values.name !== formik.initialValues.name) {
+      sessionStorage.setItem(sessionName, formikRef.current.values.name)
+    } else if (formik.values.phone !== formik.initialValues.phone) {
+      sessionStorage.setItem(sessionPhone, formikRef.current.values.phone)
+    } else if (formik.values.company !== formik.initialValues.company) {
+      sessionStorage.setItem(sessionCompany, formikRef.current.values.company)
+    }
+  }, [formik.values])
 
   return (
     <div>
@@ -74,16 +100,15 @@ const ContactForm = () => {
             <label htmlFor="name" className="font-bold flex flex-row space-x-2">
               Name
               <span className="ml-1 text-green-600">&#x0002A;</span>
-              {formik.touched.name && formik.errors.name ? <span className="text-green-600">{formik.errors.name}</span> : null}
+              {formik.touched.name && formik.errors.name ? (
+                <span className="text-green-600">{formik.errors.name}</span>
+              ) : null}
             </label>
             <input
-              id="name"
               name="name"
               type="text"
               placeholder="Your name"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
+              {...formik.getFieldProps('name')}
               className="border border-gray-500 focus:border-transparent focus:ring-2 focus:ring-green-600 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg rounded-lg p-4"
             />
           </div>
@@ -91,16 +116,15 @@ const ContactForm = () => {
             <label htmlFor="email" className="font-bold flex flex-row space-x-2">
               Email
               <span className="ml-1 text-green-600">&#x0002A;</span>
-              {formik.touched.email && formik.errors.email ? <span className="text-green-600">{formik.errors.email}</span> : null}
+              {formik.touched.email && formik.errors.email ? (
+                <span className="text-green-600">{formik.errors.email}</span>
+              ) : null}
             </label>
             <input
               id="email"
               type="email"
-              name="email"
               placeholder="Your email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
+              {...formik.getFieldProps('email')}
               className="border border-gray-500 focus:border-transparent focus:ring-2 focus:ring-green-600 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg rounded-lg p-4"
             />
           </div>
@@ -110,11 +134,9 @@ const ContactForm = () => {
             </label>
             <input
               id="phone"
-              name="phone"
               type="number"
               placeholder="Your phone number"
-              onChange={formik.handleChange}
-              value={formik.values.phone}
+              {...formik.getFieldProps('phone')}
               className="border border-gray-500 focus:border-transparent focus:ring-2 focus:ring-green-600 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg rounded-lg p-4"
             />
           </div>
@@ -125,45 +147,46 @@ const ContactForm = () => {
             <input
               id="company"
               type="text"
-              name="company"
               placeholder="Your company"
-              onChange={formik.handleChange}
-              value={formik.values.company}
+              {...formik.getFieldProps('company')}
               className="border border-gray-500 focus:border-transparent focus:ring-2 focus:ring-green-600 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg rounded-lg p-4"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="contactMessage" className="flex flex-row space-x-2 font-bold">
+            <label htmlFor="message" className="flex flex-row space-x-2 font-bold">
               Your Message
               <span className="ml-1 text-green-600">&#x0002A;</span>
-              {formik.touched.message && formik.errors.message ? <span className="text-green-600">{formik.errors.message}</span> : null} 
+              {formik.touched.message && formik.errors.message ? (
+                <span className="text-green-600">{formik.errors.message}</span>
+              ) : null}
             </label>
             <textarea
-              id="message"
               name="message"
               rows="6"
               cols="50"
               placeholder="Start typing..."
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.message}
+              {...formik.getFieldProps('message')}
               className="border border-gray-500 focus:border-transparent focus:ring-2 focus:ring-green-600 rounded-lg p-4 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg"
             />
           </div>
-
           <div className="w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg">
             <div className="relative inline-block w-10 mr-2 align-middle select-none transform transition duration-200 ease-in">
-              <label
-                htmlFor="toggle"
-              >
+              <label htmlFor="toggle">
                 <input
                   type="checkbox"
                   name="toggle"
                   id="toggle"
                   onClick={handleToggleStyle}
-                  className={`${toggleStyle ? "border-green-600 right-0" : null} absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer`}
+                  className={`${
+                    toggleStyle ? 'border-green-600 right-0' : null
+                  } absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer`}
                 />
-                <div className={`${toggleStyle ? "bg-green-600" : "bg-gray-200"} block overflow-hidden h-6 rounded-full cursor-pointer`} />
+                <div
+                  className={`
+                  ${
+                    toggleStyle ? 'bg-green-600' : 'bg-gray-200'
+                  } block overflow-hidden h-6 rounded-full cursor-pointer`}
+                />
               </label>
             </div>
             <span className="text-xs text-gray-700">
@@ -177,16 +200,14 @@ const ContactForm = () => {
           </div>
         </div>
       </form>
-      {submitted && (
-        <div className="relative flex h-128">
+      <div className={`${submitted ? 'block' : 'hidden'} relative flex h-128`}>
         <div className="mt-12 flex flex-col h-2/5 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg border rounded-lg bg-green-600">
           <div className="flex flex-col space-y-4 pt-12 pb-16 px-12 text-white font-bold">
             <p>Form submitted successfully!</p>
             <p>A confirmation email was sent to {formik.values.email}</p>
           </div>
         </div>
-        </div>
-      )}
+      </div>
     </div>
   )
 }
