@@ -51,7 +51,7 @@ const ContactForm = () => {
     },
     validate,
     onSubmit: (values) => {
-      JSON.stringify(values, null, 2)
+      console.log(JSON.stringify(values, null, 2))
       setSubmitted(true)
     }
   })

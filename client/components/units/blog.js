@@ -12,8 +12,8 @@ const Blog = () => {
        
         <div className="relative flex flex-col px-16 pb-16 md:px-0 md:flex-row space-y-8 md:space-y-0 justify-evenly items-center">
           
-          <div className="h-80 w-full md:w-2/7 rounded-lg shadow-lg">
-              <div className="flex flex-col h-full w-full shadow-lg rounded-lg overflow-auto no-underline">
+          <div className="h-80 w-full md:w-2/7 rounded-lg shadow-md">
+              <div className="flex flex-col h-full w-full shadow-md rounded-lg overflow-auto no-underline">
                 <figure className="h-1/3 relative overflow-hidden">
                   <img
                     src="/images/img-biology.jpg"
@@ -34,8 +34,8 @@ const Blog = () => {
               </div>  
           </div>
 
-          <div className="h-80 w-full md:w-2/7 rounded-lg shadow-lg">
-            <div className="flex flex-col h-full w-full shadow-lg rounded-lg overflow-auto no-underline">
+          <div className="h-80 w-full md:w-2/7 rounded-lg shadow-md">
+            <div className="flex flex-col h-full w-full shadow-md rounded-lg overflow-auto no-underline">
                 <figure className="h-1/3 relative overflow-hidden">
                   <img
                     src="/images/img-infection.jpg"
@@ -59,8 +59,8 @@ const Blog = () => {
                 </div>       
               </div>
           </div>
-          <div className="h-80 w-full md:w-2/7 rounded-lg shadow-lg">
-            <div className="flex flex-col h-full w-full shadow-lg rounded-lg overflow-auto no-underline">
+          <div className="h-80 w-full md:w-2/7 rounded-lg shadow-md">
+            <div className="flex flex-col h-full w-full shadow-md rounded-lg overflow-auto no-underline">
                 <figure className="h-1/3 relative overflow-hidden">
                   <img
                     src="/images/img-child.jpg"
