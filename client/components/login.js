@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 // import { createStore } from 'redux'
-import NewInput from './input'
 import UserInfo from './about'
 import Header from './units/header'
 
@@ -71,11 +70,11 @@ const TodoApp = () => {
         </form>
       </div>
       <div className="p-20">
-        <NewInput name="input1" />
+        <input name="input1" />
       </div>
       <div className="p-20">
         <div>
-          <NewInput name="input2" />
+          <input name="input2" />
         </div>
       </div>
     </div>

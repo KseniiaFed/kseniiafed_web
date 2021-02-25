@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useFormik } from 'formik'
 
-const unclickable = 'border mr-0 focus:outline-none rounded-full py-3 px-6 text-center text-white font-bold bg-gray-400'
-const clickable = 'border mr-0 focus:outline-none rounded-full py-3 px-6 text-center text-white font-bold bg-green-600 hover:bg-green-500'
+const unclickable =
+  'border mr-0 focus:outline-none rounded-full py-3 px-6 text-center text-white font-bold bg-gray-400'
+const clickable =
+  'border mr-0 focus:outline-none rounded-full py-3 px-6 text-center text-white font-bold bg-green-600 hover:bg-green-500'
 
 const validate = (values) => {
   const errors = {}
@@ -86,7 +88,13 @@ const ContactForm = () => {
     } else if (formik.values.company !== formik.initialValues.company) {
       sessionStorage.setItem(sessionCompany, formikRef.current.values.company)
     }
-  }, [formik.values])
+  }, [
+    formik.values,
+    formik.initialValues.company,
+    formik.initialValues.message,
+    formik.initialValues.name,
+    formik.initialValues.phone
+  ])
 
   return (
     <div>

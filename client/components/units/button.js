@@ -5,11 +5,7 @@ import { string } from 'prop-types'
 
 const Styles = ['btn-default', 'btn-outline']
 
-const Button = ({
-  children,
-  onClick,
-  buttonStyle
-}) => {
+const Button = ({ children, onClick, buttonStyle }) => {
   const checkButtonStyle = Styles.includes(buttonStyle) ? buttonStyle : Styles[0]
 
   return (
@@ -26,7 +22,7 @@ const Button = ({
 }
 
 Button.defaultProps = {
-  type: string,
+  type: string
 }
 
 export default Button
