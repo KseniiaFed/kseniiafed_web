@@ -83,7 +83,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-links" onClick={closeMenuBar}>
-              Contact Us
+              Contact
             </Link>
           </li>
           <li className="nav-item">

@@ -54,6 +54,15 @@ const ContactForm = () => {
     validate,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2))
+      fetch('https://url/server', {
+        method: 'POST',
+        body: JSON.stringify(values, null, 2),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        }
+      })
+        .then((res) => res.json())
+        .then((json) => console.log(json))
       setSubmitted(true)
     }
   })
