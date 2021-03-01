@@ -1,5 +1,4 @@
 import React from 'react'
-
 // import wave from '../assets/images/wave.jpg'
 
 const News = (props) => {

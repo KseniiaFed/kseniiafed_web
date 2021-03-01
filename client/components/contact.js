@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div>
       <div className="px-8 py-8 mb-16 flex flex-col w-full space-y-12 lg:space-y-0 lg:flex-row lg:space-x-12 lg:justify-between 2xl:justify-center 2xl:space-x-32 tracking-wide">
-        <div className="">
+        <div>
           <div className="text-4xl tracking-wider text-gray-800">
             <h1 className="py-6 self-center">Contact us</h1>
           </div>
