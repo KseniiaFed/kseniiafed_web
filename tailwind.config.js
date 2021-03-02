@@ -8,7 +8,8 @@ module.exports = {
         'slide3': "url('slide3.jpg')",
         'slide4': "url('slide4.jpg')",
         'slide5': "url('slide5.jpg')",
-        'microscope': "url('img-lab.jpg')"
+        'microscope': "url('img-lab.jpg')",
+        'about-us': "url('pexels-hands.jpg')"
       }),
       zIndex: {
         '-1': '-1'
