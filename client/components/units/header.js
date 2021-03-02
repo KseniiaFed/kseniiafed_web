@@ -64,7 +64,7 @@ const Header = () => {
             <Link to="/about" className="nav-links" onClick={closeMenuBar}>
               About
             </Link>
-            {isShown && <DropdownMenu text="About Us" path="/about" closeMenuBar={closeMenuBar} />}
+            {isShown && <DropdownMenu row1text="About Us" path="/about" closeMenuBar={closeMenuBar} />}
           </li>
           <li className="nav-item">
             <Link to="/training" className="nav-links" onClick={closeMenuBar}>

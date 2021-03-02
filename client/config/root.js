@@ -10,6 +10,7 @@ import store, { history } from '../redux'
 import Header from '../components/units/header'
 import Footer from '../components/units/footer'
 import About from '../components/about'
+import AboutTeam from '../components/aboutteam'
 import Training from '../components/training'
 import Events from '../components/events'
 import News from '../components/news'
@@ -83,6 +84,7 @@ const RootComponent = (props) => {
             <Switch>
               <Route exact path="/" component={() => <DummyView />} />
               <Route exact path="/about" component={() => <About />} />
+              <Route exact path="/aboutteam" component={() => <AboutTeam />} />
               <Route exact path="/training" component={() => <Training />} />
               <Route exact path="/events" component={() => <Events />} />
               <Route exact path="/news" component={() => <News />} />
