@@ -1,11 +1,10 @@
 import React from 'react'
 import Button from './button'
-import './mainslider.scss'
 
 const Slide = (props) => {
   return (
     <div
-      className={`bg-${props.background} slider bg-cover flex items-center justify-center relative w-full h-full`}
+      className={`bg-${props.background} home-top-slider bg-cover flex items-center justify-center relative w-full h-full`}
     >
       <div className="relative items-center">
         <h1 className="text-white font-bold text-4xl md:text-6xl text-center tracking-widest">

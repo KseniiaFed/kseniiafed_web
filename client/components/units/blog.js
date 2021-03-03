@@ -28,8 +28,12 @@ const Blog = () => {
                   Should be carousel from news some text here blablabla
                   fsdljfhdflgdlgghldkhggkdffgaldfndj
                 </p>
-                <Link to="/news" className="absolute bottom-4">
-                  Find out more link to the News
+                <Link
+                  to="/news"
+                  aria-label="News"
+                  className="absolute bottom-4 text-base font-bold text-gray-500"
+                >
+                  News
                 </Link>
               </div>
             </div>
@@ -52,8 +56,12 @@ const Blog = () => {
                     fsdljfhdflgdlgghldkhggkdffgaldfndj
                   </p>
                 </div>
-                <Link to="/news" className="absolute bottom-4">
-                  Find out more link to the News
+                <Link
+                  to="/news"
+                  aria-label="News"
+                  className="absolute bottom-4 text-base font-bold text-gray-500"
+                >
+                  News
                 </Link>
               </div>
             </div>
@@ -74,8 +82,13 @@ const Blog = () => {
                   Should be carousel from news some text here blablabla
                   fsdljfhdflgdlgghldkhggkdffgaldfndj
                 </p>
-                <Link to="/news" className="absolute bottom-4">
-                  Twitter link
+                <Link
+                  className="absolute bottom-4 text-xl text-gray-500"
+                  to="/"
+                  target="_blank"
+                  aria-label="Twitter"
+                >
+                  <i className="fab fa-twitter" />
                 </Link>
               </div>
             </div>

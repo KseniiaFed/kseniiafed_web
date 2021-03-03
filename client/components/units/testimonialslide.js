@@ -1,5 +1,4 @@
 import React from 'react'
-import './slide.scss'
 
 // setInterval(function(){
 //     const activeSlide = document.querySelector('.slide.translate-x-0');
@@ -18,7 +17,7 @@ export default function TestimonialSlide({
 }) {
   return (
     <div>
-      <div className="slide relative rounded-lg max-w-md self-start lg:self-center md:max-w-screen-sm md:min-w-1/3 md:max-h-96 bg-white shadow-lg">
+      <div className="testimonials-slider relative rounded-lg max-w-md self-start lg:self-center md:max-w-screen-sm md:min-w-1/3 md:max-h-96 bg-white shadow-lg">
         <div className="relative p-4 flex flex-row border-1 bg-gradient-to-b from-gray-800 items-center rounded-t-lg">
           <div className="items-center justify-center ml-2">
             <img
