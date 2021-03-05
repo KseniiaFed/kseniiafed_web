@@ -8,21 +8,21 @@ const CourseCard = ({ name, img, date, text }) => {
       <div className="relative flex flex-row sm:flex-col sm:w-64 md:w-72">
         <div className={`bg-${img} bg-center w-28 h-28 sm:h-64 sm:w-64 md:h-72 md:w-72`}>
           <div className="">
-            <Link to="/" className="rounded-full py-2 px-6 border border-white text-white bg-transparent hover:bg-white hover:text-green-900">
+            <Link to="/training-info" className="rounded-full py-2 px-6 border border-white text-white bg-transparent hover:bg-white hover:text-green-900">
               Read more
             </Link>
           </div>
         </div>
         <div className="flex flex-col w-2/3 sm:w-full space-y-2 py-2 px-2 sm:px-0">
           <div>
-            <h3 className="md:text-2xl font-bold">{name}</h3>
+            <h3 className="md:text-2xl font-bold text-gray-900">{name}</h3>
           </div>
-          <div className="flex flex-row space-x-2">
+          <div className="flex flex-row space-x-2 text-xs sm:text-sm">
             <i className="far fa-calendar-alt" />
-            <p className="text-sm">{date}</p>
+            <p className="">{date}</p>
           </div>
           <div className="hidden sm:block">
-            <span className="text-base">{text}</span>
+            <span className="sm:text-sm md:text-base md:leading-7 text-center text-gray-600">{text}</span>
           </div>
         </div>
       </div>
@@ -43,13 +43,13 @@ const Training = (props) => {
           <p className="p-12 text-2xl text-gray-900"> We deliver training programmes and workshops tailored to the unique needs of professionals in the design industry.</p>
         </div>
         <div className="flex flex-row justify-center items-center filter-buttons text-base text-green-900 space-x-8">
-          <button type="button" className="rounded-full py-2 px-6 border border-green-900 hover:bg-green-900 hover:text-white">
+          <button type="button" className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white">
             All
           </button>
-          <button type="button" className="rounded-full py-2 px-6 border border-green-900 hover:bg-green-900 hover:text-white">
+          <button type="button" className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white">
             Course
           </button>
-          <button type="button" className="rounded-full py-2 px-6 border border-green-900 hover:bg-green-900 hover:text-white">
+          <button type="button" className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white">
             Event
           </button>
         </div>

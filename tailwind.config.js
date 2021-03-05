@@ -9,7 +9,8 @@ module.exports = {
         'slide4': "url('slide4.jpg')",
         'slide5': "url('slide5.jpg')",
         'microscope': "url('img-lab.jpg')",
-        'about-us': "url('pexels-hands.jpg')"
+        'about-us': "url('pexels-hands.jpg')",
+        'login': "url('people2.jpg')"
       }),
       zIndex: {
         '-1': '-1'

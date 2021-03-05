@@ -16,8 +16,9 @@ import Events from '../components/events'
 import News from '../components/news'
 import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
-import TodoApp from '../components/login'
+import Login from '../components/login'
 import Contact from '../components/contact'
+import TrainingInfo from '../components/trainingInfo'
 
 import Startup from './startup'
 
@@ -88,8 +89,9 @@ const RootComponent = (props) => {
               <Route exact path="/training" component={() => <Training />} />
               <Route exact path="/events" component={() => <Events />} />
               <Route exact path="/news" component={() => <News />} />
-              <Route exact path="/login" component={() => <TodoApp />} />
+              <Route exact path="/login" component={() => <Login/>} />
               <Route exact path="/contact" component={() => <Contact />} />
+              <Route exact path="/training-info" component={() => <TrainingInfo />} />
               <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
               <Route component={() => <NotFound />} />
             </Switch>

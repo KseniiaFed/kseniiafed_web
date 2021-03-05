@@ -11,7 +11,7 @@ const validate = (values) => {
 
   if (!values.name) {
     errors.name = 'This field is required'
-  } else if (values.name.length > 15) {
+  } else if (values.name.length > 25) {
     errors.name = 'Must be less than 25 characters'
   }
 

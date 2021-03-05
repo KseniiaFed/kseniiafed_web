@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 * { a:active, a:focus { outline: none; }
-
+    button { outline: none; }
     input, textarea {outline:none;}
     input:active, textarea:active {outline:none;}
     :focus {outline:none;}
