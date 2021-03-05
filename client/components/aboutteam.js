@@ -39,7 +39,9 @@ const AboutTeam = () => {
   return (
     <div>
       <div className="relative w-full pt-8 pb-28 flex flex-col justify-center items-center">
-        <h1 className="pt-12 pb-28 text-center text-4xl tracking-wider text-gray-800">Meet Our Team</h1>
+        <h1 className="pt-12 pb-28 text-center text-4xl tracking-wider text-gray-800">
+          Meet Our Team
+        </h1>
         <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-y-28">
           <TeamCard
             name="James Holden"
@@ -76,7 +78,7 @@ const AboutTeam = () => {
             photo="/images/team1.jpg"
             text="dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
           />
-        </div>  
+        </div>
       </div>
     </div>
   )

@@ -89,7 +89,7 @@ const RootComponent = (props) => {
               <Route exact path="/training" component={() => <Training />} />
               <Route exact path="/events" component={() => <Events />} />
               <Route exact path="/news" component={() => <News />} />
-              <Route exact path="/login" component={() => <Login/>} />
+              <Route exact path="/login" component={() => <Login />} />
               <Route exact path="/contact" component={() => <Contact />} />
               <Route exact path="/training-info" component={() => <TrainingInfo />} />
               <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />

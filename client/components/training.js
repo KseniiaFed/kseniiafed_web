@@ -8,7 +8,10 @@ const CourseCard = ({ name, img, date, text }) => {
       <div className="relative flex flex-row sm:flex-col sm:w-64 md:w-72">
         <div className={`bg-${img} bg-center w-28 h-28 sm:h-64 sm:w-64 md:h-72 md:w-72`}>
           <div className="">
-            <Link to="/training-info" className="rounded-full py-2 px-6 border border-white text-white bg-transparent hover:bg-white hover:text-green-900">
+            <Link
+              to="/training-info"
+              className="rounded-full py-2 px-6 border border-white text-white bg-transparent hover:bg-white hover:text-green-900"
+            >
               Read more
             </Link>
           </div>
@@ -22,7 +25,9 @@ const CourseCard = ({ name, img, date, text }) => {
             <p className="">{date}</p>
           </div>
           <div className="hidden sm:block">
-            <span className="sm:text-sm md:text-base md:leading-7 text-center text-gray-600">{text}</span>
+            <span className="sm:text-sm md:text-base md:leading-7 text-center text-gray-600">
+              {text}
+            </span>
           </div>
         </div>
       </div>
@@ -39,17 +44,33 @@ const Training = (props) => {
     <div>
       <div className="px-12 pt-8 pb-16 w-full flex flex-col space-y-12 justify-center tracking-wide">
         <div className="relative flex flex-col">
-          <h1 className="text-4xl tracking-wider text-gray-800 p-12 self-center"> Upcoming Courses & Trainings </h1>
-          <p className="p-12 text-2xl text-gray-900"> We deliver training programmes and workshops tailored to the unique needs of professionals in the design industry.</p>
+          <h1 className="text-4xl tracking-wider text-gray-800 p-12 self-center">
+            {' '}
+            Upcoming Courses & Trainings{' '}
+          </h1>
+          <p className="p-12 text-2xl text-gray-900">
+            {' '}
+            We deliver training programmes and workshops tailored to the unique needs of
+            professionals in the design industry.
+          </p>
         </div>
         <div className="flex flex-row justify-center items-center filter-buttons text-base text-green-900 space-x-8">
-          <button type="button" className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white">
+          <button
+            type="button"
+            className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white"
+          >
             All
           </button>
-          <button type="button" className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white">
+          <button
+            type="button"
+            className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white"
+          >
             Course
           </button>
-          <button type="button" className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white">
+          <button
+            type="button"
+            className="rounded-full py-2 px-6 border border-green-900 focus:outline-none hover:bg-green-900 hover:text-white"
+          >
             Event
           </button>
         </div>
@@ -68,37 +89,15 @@ const Training = (props) => {
             date="July 16th 2021"
             text=""
           />
-          <CourseCard
-            id=""
-            name=""
-            img=""
-            date=""
-            text=""
-          />
-          <CourseCard
-            id=""
-            name=""
-            img=""
-            date=""
-            text=""
-          />
-          <CourseCard
-            id=""
-            name=""
-            img=""
-            date=""
-            text=""
-          />
-          <CourseCard
-            id=""
-            name=""
-            img=""
-            date=""
-            text=""
-          />
+          <CourseCard id="" name="" img="" date="" text="" />
+          <CourseCard id="" name="" img="" date="" text="" />
+          <CourseCard id="" name="" img="" date="" text="" />
+          <CourseCard id="" name="" img="" date="" text="" />
         </div>
         <div className="relative flex flex-col">
-          <h1 className="text-4xl tracking-wider text-gray-800 p-12 self-center">Events you might like</h1>
+          <h1 className="text-4xl tracking-wider text-gray-800 p-12 self-center">
+            Events you might like
+          </h1>
           <div className="self-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 sm:gap-x-12 sm:gap-y-28">
             Events here
           </div>

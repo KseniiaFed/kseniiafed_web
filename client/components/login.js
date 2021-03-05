@@ -63,25 +63,41 @@ const Login = () => {
             <div className="relative flex flex-col w-3/4 sm:w-96 space-y-8">
               <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                  <label htmlFor="firstName" className="text-white text-opacity-90 font-bold mb-2">First Name</label>
+                  <label htmlFor="firstName" className="text-white text-opacity-90 font-bold mb-2">
+                    First Name
+                  </label>
                   <div className="text-red-600 font-bold">
                     <ErrorMessage name="firstName" className="text-red-500" />
                   </div>
                 </div>
-                <Field name="firstName" type="text" className="rounded-sm p-3" placeholder="First name" />
+                <Field
+                  name="firstName"
+                  type="text"
+                  className="rounded-sm p-3"
+                  placeholder="First name"
+                />
               </div>
               <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                  <label htmlFor="lasttName" className="text-white text-opacity-90 font-bold mb-2">Last Name</label>
+                  <label htmlFor="lasttName" className="text-white text-opacity-90 font-bold mb-2">
+                    Last Name
+                  </label>
                   <div className="text-red-600 font-bold">
                     <ErrorMessage name="lastName" />
                   </div>
                 </div>
-                <Field name="lastName" type="text" className="rounded-sm p-3" placeholder="Last name" />
+                <Field
+                  name="lastName"
+                  type="text"
+                  className="rounded-sm p-3"
+                  placeholder="Last name"
+                />
               </div>
               <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                  <label htmlFor="email" className="text-white text-opacity-90 font-bold mb-2">Email</label>
+                  <label htmlFor="email" className="text-white text-opacity-90 font-bold mb-2">
+                    Email
+                  </label>
                   <div className="text-red-600 font-bold">
                     <ErrorMessage name="email" />
                   </div>
@@ -90,25 +106,45 @@ const Login = () => {
               </div>
               <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                  <label htmlFor="password" className="text-white text-opacity-90 font-bold mb-2">Password</label>
+                  <label htmlFor="password" className="text-white text-opacity-90 font-bold mb-2">
+                    Password
+                  </label>
                   <div className="text-red-600 font-bold">
                     <ErrorMessage name="password" />
                   </div>
                 </div>
-                <Field name="password" type="text" className="rounded-sm p-3" placeholder="Password" />
+                <Field
+                  name="password"
+                  type="text"
+                  className="rounded-sm p-3"
+                  placeholder="Password"
+                />
               </div>
               <div className="flex flex-col">
                 <div className="flex flex-row justify-between">
-                  <label htmlFor="passwordVerified" className="text-white text-opacity-90 font-bold mb-2">Verify Password</label>
+                  <label
+                    htmlFor="passwordVerified"
+                    className="text-white text-opacity-90 font-bold mb-2"
+                  >
+                    Verify Password
+                  </label>
                   <div className="text-red-600 font-bold">
                     <ErrorMessage name="passwordVerified" />
                   </div>
                 </div>
-                <Field name="passwordVerified" type="text" className="rounded-sm p-3" placeholder="Password confirm" />
+                <Field
+                  name="passwordVerified"
+                  type="text"
+                  className="rounded-sm p-3"
+                  placeholder="Password confirm"
+                />
               </div>
             </div>
             <div className="mt-12">
-              <button type="submit" className="focus:outline-none font-bold text-white bg-white bg-opacity-20 rounded-full py-3 px-6 hover:bg-opacity-75 hover:text-gray-900 active:bg-opacity-100">
+              <button
+                type="submit"
+                className="focus:outline-none font-bold text-white bg-white bg-opacity-20 rounded-full py-3 px-6 hover:bg-opacity-75 hover:text-gray-900 active:bg-opacity-100"
+              >
                 Submit
               </button>
             </div>
