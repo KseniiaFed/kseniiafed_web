@@ -57,9 +57,7 @@ const News = (props) => {
             <NewsCard />
           </div>
           <div className="px-12 py-8 relative flex flex-col sm:flex-row justify-between">
-            <div className="relative flex flex-col">
-              News text
-            </div>
+            <div className="relative flex flex-col">News text</div>
             <div className="w-72 p-4 rounded-lg shadow-lg">
               <Timeline
                 dataSource={{
@@ -72,7 +70,6 @@ const News = (props) => {
               />
             </div>
           </div>
-          
         </div>
         <div className="flex flex-row items-center justify-center p-4">
           <button type="button" className="focus:outline-none font-bold text-green-900">

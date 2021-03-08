@@ -9,7 +9,7 @@ const DropdownMenu = (props) => {
       aria-orientation="vertical"
       aria-labelledby="options-menu"
     >
-      <li className="py-1">
+      <div className="py-1">
         <Link
           to="/about"
           className="block px-4 py-2 text-sm text-white hover:bg-opacity-80 hover:text-gray-500"
@@ -18,8 +18,8 @@ const DropdownMenu = (props) => {
         >
           About us
         </Link>
-      </li>
-      <li className="py-1">
+      </div>
+      <div className="py-1">
         <Link
           to="aboutteam"
           className="block px-4 py-2 text-sm text-white hover:bg-opacity-80 hover:text-gray-500"
@@ -28,7 +28,7 @@ const DropdownMenu = (props) => {
         >
           Our team
         </Link>
-      </li>
+      </div>
     </div>
   )
 }
