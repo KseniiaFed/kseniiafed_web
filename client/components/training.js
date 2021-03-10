@@ -46,7 +46,7 @@ const Training = (props) => {
         <div className="relative flex flex-col">
           <h1 className="text-4xl tracking-wider text-gray-800 p-12 self-center">
             {' '}
-            Upcoming Courses & Trainings{' '}
+            Upcoming Courses & Training{' '}
           </h1>
           <p className="p-12 text-2xl text-gray-900">
             {' '}

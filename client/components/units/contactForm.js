@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
+import { submitForm } from '../../redux/reducers/contactForm'
 
 const unclickable =
   'border mr-0 focus:outline-none rounded-full py-3 px-6 text-center text-white font-bold bg-gray-400'
@@ -31,7 +33,9 @@ const validate = (values) => {
 }
 
 const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false)
+  const formIsSubmitted = useSelector((s) => s.contactForm.submitted)
+  const dispatch = useDispatch()
+  // const [submitted, setSubmitted] = useState(false)
   const [submitButton, setSubmitButton] = useState(unclickable)
   const [toggleStyle, setToggleStyle] = useState(false)
 
@@ -54,16 +58,17 @@ const ContactForm = () => {
     validate,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2))
-      fetch('https://url/server', {
-        method: 'POST',
-        body: JSON.stringify(values, null, 2),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8'
-        }
-      })
-        .then((res) => res.json())
-        .then((json) => console.log(json))
-      setSubmitted(true)
+      // fetch('https://url/server', {
+      //   method: 'POST',
+      //   body: JSON.stringify(values, null, 2),
+      //   headers: {
+      //     'Content-type': 'application/json; charset=UTF-8'
+      //   }
+      // })
+      //   .then((res) => res.json())
+      //   .then((json) => console.log(json))
+      dispatch(submitForm(true))
+      // setSubmitted(true)
     }
   })
   const formik = formikRef.current
@@ -108,7 +113,7 @@ const ContactForm = () => {
   return (
     <div>
       <form
-        className={`${submitted ? 'hidden' : 'block'} mt-12 flex flex-col`}
+        className={`${formIsSubmitted ? 'hidden' : 'block'} mt-12 flex flex-col`}
         action="Contact-Form"
         onSubmit={formik.handleSubmit}
       >
@@ -217,7 +222,7 @@ const ContactForm = () => {
           </div>
         </div>
       </form>
-      <div className={`${submitted ? 'block' : 'hidden'} relative flex h-128`}>
+      <div className={`${formIsSubmitted ? 'block' : 'hidden'} relative flex h-128`}>
         <div className="mt-12 flex flex-col h-2/5 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg border rounded-lg bg-green-600">
           <div className="flex flex-col space-y-4 pt-12 pb-16 px-12 text-white font-bold">
             <p>Form submitted successfully!</p>

@@ -10,7 +10,7 @@ const TrainingInfo = () => {
       <div>Img</div>
       <div>Share Links</div>
       <div>Description</div>
-      <div>Book your place</div>
+      <div>Enroll now</div>
       <div>Events you might like</div>
       <Subscription />
     </div>

@@ -1,37 +1,13 @@
-import React, { useState, useEffect, useReducer } from 'react'
-
-const initialState = {
-  user1: {},
-  user2: {}
-}
-
-const reducerFunc = (acc, rec) => {
-  switch(rec.type) {
-    case ('UPDATE USER'): {
-      return { ...acc, [`user${rec.userIndex}`]: rec.user }
-    }
-    default:
-      return acc
-  }
-}
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { updateUsername, getUserData } from '../redux/reducers/events'
 
 const Events = (props) => {
-  const [state, dispatch] = useReducer(reducerFunc, initialState)
+  const name = useSelector((s) => s.events.name)
+  const repoList = useSelector((s) => s.events.list)
+  const dispatch = useDispatch()
 
-  const [userData, setUserData] = useState(initialState)
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(1000, userData)
-      setUserData({ ...userData, user1: { name: 'Max' } })
-      dispatch({ type: 'UPDATE_USER', userIndex: 1, user: { name: 'Max' } })
-    }, 1000)
 
-    setTimeout(() => {
-      console.log(1200, userData)
-      setUserData({ ...userData, user2: { name: 'Anoinette' } })
-      // dispatch({ type: 'UPDATE_USER', userIndex: 2, user: { name: 'Elena' } })
-    }, 5000)
-  }, [state])
   if (props.isRequesting) {
     return 'Wait a sec, requesting...'
   }
@@ -40,16 +16,34 @@ const Events = (props) => {
     <div>
       <div>
         <div>
-          1{state.user1.name}
+          Events here
+          <br />
+          <input
+            type="text"
+            className="border-black border-2"
+            onChange={(e) => {
+              dispatch(updateUsername(e.target.value))
+            }}
+            value={name}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                dispatch(getUserData())
+              }
+            }}
+          />
+          <br />
           <button
             type="button"
-            onClick={() => dispatch({ type: 'UPDATE_USER', userIndex: 2, user: { name: 'Elena' } })}
+            onClick={() => dispatch(getUserData())}
+            className="p-4 bg-indigo-300 rounded-xl text-white"
           >
-            BUTTON
+            Find User
           </button>
+          <br />
+          {repoList.map(it => {
+            return <div key="name">{it.name}</div>
+          })}
         </div>
-        <div>2{state.user2.name}</div>
-        {console.log('reducer', state)}
       </div>
     </div>
   )
