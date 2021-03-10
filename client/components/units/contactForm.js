@@ -35,7 +35,6 @@ const validate = (values) => {
 const ContactForm = () => {
   const formIsSubmitted = useSelector((s) => s.contactForm.submitted)
   const dispatch = useDispatch()
-  // const [submitted, setSubmitted] = useState(false)
   const [submitButton, setSubmitButton] = useState(unclickable)
   const [toggleStyle, setToggleStyle] = useState(false)
 
@@ -68,7 +67,6 @@ const ContactForm = () => {
       //   .then((res) => res.json())
       //   .then((json) => console.log(json))
       dispatch(submitForm(true))
-      // setSubmitted(true)
     }
   })
   const formik = formikRef.current

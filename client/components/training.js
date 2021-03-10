@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { getCoursesData } from '../redux/reducers/training'
 import Subscription from './units/subscription'
 
 const CourseCard = ({ name, img, date, text }) => {
@@ -36,6 +38,13 @@ const CourseCard = ({ name, img, date, text }) => {
 }
 
 const Training = (props) => {
+  const courseList = useSelector((s) => s.training.courses)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCoursesData())
+  }, [])
+
   if (props.isRequesting) {
     return 'Wait a sec, requesting...'
   }
@@ -75,13 +84,24 @@ const Training = (props) => {
           </button>
         </div>
         <div className="self-center grid grid-cols-1 gap-y-8 sm:gap-x-12 sm:grid-cols-2 md:grid-cols-3 sm:gap-y-28">
-          <CourseCard
-            id=""
-            name="Designs&Visualisation"
+          {courseList.map((it) => {
+            return (
+              <CourseCard
+                key={it.id}
+                name={it.title}
+                img=""
+                date="January 27th 2021"
+                text={it.body}
+              />
+            )
+          })}
+          {/* <CourseCard
+            key={it.id}
+            name={it.title}
             img=""
             date="January 27th 2021"
-            text="Join past participants as well as the course trainer of the Designs on Growth programme to hear how it is impacting their careers and businesses, and learn how they managed their study with work."
-          />
+            text={it.body}
+          /> */}
           <CourseCard
             id=""
             name="JavaScript Advanced-best practices of 2021"
@@ -100,6 +120,9 @@ const Training = (props) => {
           </h1>
           <div className="self-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 sm:gap-x-12 sm:gap-y-28">
             Events here
+            {courseList.map((it) => {
+              return <div key="id">{it.title}</div>
+            })}
           </div>
         </div>
       </div>

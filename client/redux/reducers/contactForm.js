@@ -2,11 +2,7 @@
 const FORM_SUBMITTED = 'FORM_SUBMITTED'
 
 const initialState = {
-  testUser: 1,
-  submitted: false,
-  // submitButton: unclickable,
-  toggleStyle: false,
-  list: []
+  submitted: false
 }
 
 export default (state = initialState, action) => {
@@ -25,4 +21,3 @@ export default (state = initialState, action) => {
 export function submitForm(submitted) {
   return { type: FORM_SUBMITTED, submitted }
 }
-
