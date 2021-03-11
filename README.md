@@ -4,7 +4,7 @@
 
 1. Clone this repo using:
   ```shell
-  $ git clone repo link
+  $ git clone git@github.com:KseniiaFed/kseniiafed_web.git
   ```
 
 2. To install dependencies and clean the git repo run:
