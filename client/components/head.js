@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 
 const Head = (props) => (
   <Helmet>
-    <title>VCCN - {props.title}</title>
+    <title>CourseUP - {props.title}</title>
     <meta charSet="utf-8" />
     te
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,7 +17,7 @@ Head.propTypes = {
 }
 
 Head.defaultProps = {
-  title: 'skillcrucial.com'
+  title: 'CourseUP'
 }
 
 export default Head

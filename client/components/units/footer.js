@@ -46,10 +46,10 @@ const Footer = () => {
               to="/"
               className="cursor-pointer justify-self-start ml-5 text-4xl no-underline flex self-center mb-4"
             >
-              VCCN <i className="fas fa-syringe" />
+              CourseUP <i className="fas fa-laptop-code" />
             </Link>
           </div>
-          <small className="mb-4">VCCN &copy; 2021</small>
+          <small className="mb-4">CourseUP &copy; 2021</small>
           <div className="flex justify-between items-center w-1/3 sm:text-2xl xl:text-3xl">
             <Link
               className="social-icon-link facebook"

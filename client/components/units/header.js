@@ -34,8 +34,8 @@ const Header = () => {
       <div className="flex flex-row justify-between items-center text-white font-bold antialiased text-xl tracking-wide">
         <div className="flex justify-start font-bold text-2xl tracking-tighter">
           <Link to="/" onClick={closeMenuBar}>
-            <span>VCCN</span>
-            <i className="fas fa-syringe" />
+            <span>CourseUP </span>
+            <i className="fas fa-laptop-code" />
           </Link>
         </div>
         <div
@@ -64,7 +64,9 @@ const Header = () => {
             <Link to="/about" className="nav-links" onClick={closeMenuBar}>
               About
             </Link>
-            {isShown && <DropdownMenu row1text="About Us" path="/about" closeMenuBar={closeMenuBar} />}
+            {isShown && (
+              <DropdownMenu row1text="About Us" path="/about" closeMenuBar={closeMenuBar} />
+            )}
           </li>
           <li className="nav-item">
             <Link to="/training" className="nav-links" onClick={closeMenuBar}>

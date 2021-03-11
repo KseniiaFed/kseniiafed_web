@@ -95,24 +95,6 @@ const Training = (props) => {
               />
             )
           })}
-          {/* <CourseCard
-            key={it.id}
-            name={it.title}
-            img=""
-            date="January 27th 2021"
-            text={it.body}
-          /> */}
-          <CourseCard
-            id=""
-            name="JavaScript Advanced-best practices of 2021"
-            img=""
-            date="July 16th 2021"
-            text=""
-          />
-          <CourseCard id="" name="" img="" date="" text="" />
-          <CourseCard id="" name="" img="" date="" text="" />
-          <CourseCard id="" name="" img="" date="" text="" />
-          <CourseCard id="" name="" img="" date="" text="" />
         </div>
         <div className="relative flex flex-col">
           <h1 className="text-4xl tracking-wider text-gray-800 p-12 self-center">
