@@ -90,14 +90,14 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <Link
-              to="/login"
+              to="/sign-in"
               className="md:hidden block text-center my-8 mx-auto w-full py-3.5 rounded w-4/5 no-underline text-2xl bg-transparent transition-all duration-300 ease-in hover:bg-white hover:text-black hover:duration-200"
               onClick={closeMenuBar}
             >
-              LOG IN
+              SIGN IN
             </Link>
           </li>
-          {button && <Button buttonStyle="btn-outline">LOG IN</Button>}
+          {button && <Button buttonStyle="btn-outline">SIGN IN</Button>}
         </ul>
       </div>
     </div>

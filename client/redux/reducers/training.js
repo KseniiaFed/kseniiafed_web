@@ -34,3 +34,11 @@ export function getCoursesData() {
     })
   }
 }
+
+export function getCoursesImage() {
+  return (dispatch) => {
+    axios('https://picsum.photos/200').then(({ data }) => {
+      dispatch({ type: GET_IMAGES, images: data })
+    })
+  }
+}

@@ -9,7 +9,7 @@ const Button = ({ children, onClick, buttonStyle }) => {
   const checkButtonStyle = Styles.includes(buttonStyle) ? buttonStyle : Styles[0]
 
   return (
-    <Link to="/login" className="btn-login">
+    <Link to="/sign-in" className="btn-login">
       <button
         className={`btn ${checkButtonStyle} focus:outline-none`}
         onClick={onClick}

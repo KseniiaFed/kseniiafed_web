@@ -7,7 +7,6 @@ const Events = (props) => {
   const repoList = useSelector((s) => s.events.list)
   const dispatch = useDispatch()
 
-
   if (props.isRequesting) {
     return 'Wait a sec, requesting...'
   }
@@ -40,7 +39,7 @@ const Events = (props) => {
             Find User
           </button>
           <br />
-          {repoList.map(it => {
+          {repoList.map((it) => {
             return <div key="name">{it.name}</div>
           })}
         </div>
@@ -48,7 +47,6 @@ const Events = (props) => {
     </div>
   )
 }
-
 
 Events.propTypes = {}
 

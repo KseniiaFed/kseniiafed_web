@@ -13,6 +13,10 @@ mongoose.connection.on('error', (err) => {
   console.log(`MongoDB connection failed ${err}`)
 })
 
+if (config.env === 'dev') {
+  mongoose.set('debug', true)
+}
+
 export default (mongoURL = mongo) => {
   mongoose.connect(mongoURL, {
     keepAlive: 1,
