@@ -1,5 +1,6 @@
 const UPDATE_SIGNIN_FORM = 'UPDATE_SIGNIN_FORM'
 const SIGNIN_FORM_SUBMITTED = 'SIGNIN_FORM_SUBMITTED'
+const SIGNIN = 'SIGNIN'
 
 const initialState = {
   email: '',
@@ -33,4 +34,24 @@ export function updateSignInForm(values) {
 
 export function submitSignInForm(submitted) {
   return { type: SIGNIN_FORM_SUBMITTED, submitted }
+}
+
+export function signIn() {
+  return (dispatch, getState) => {
+    const { email, password } = getState().signInForm
+    fetch('/api/v1/signInForm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        dispatch({ type: SIGNIN, token: data.token })
+      })
+  }
 }

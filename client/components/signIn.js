@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { updateSignInForm, submitSignInForm } from '../redux/reducers/signInForm'
+import { updateSignInForm, submitSignInForm, signIn } from '../redux/reducers/signInForm'
 
 const validate = (values) => {
   const errors = {}
@@ -34,8 +34,9 @@ const SignIn = () => {
       onSubmit={(values, { setSubmitting }) => {
         console.log(JSON.stringify(values, null, 2))
         setSubmitting(false)
-        dispatch(updateSignInForm(values))
+        dispatch(updateSignInForm(JSON.stringify(values, null, 2)))
         dispatch(submitSignInForm(true))
+        dispatch(signIn())
       }}
     >
       <Form>
@@ -88,7 +89,9 @@ const SignIn = () => {
               </div>
               <div className="mt-24 text-white flex flex-col sm:flex-row sm:space-x-2 justify-center">
                 <p>Haven&apos;t signed up with us yet?</p>
-                <Link to="/sign-in/sign-up" className="font-bold text-center">Sign Up Now</Link>
+                <Link to="/sign-in/sign-up" className="font-bold text-center">
+                  Sign Up Now
+                </Link>
               </div>
             </div>
             <div

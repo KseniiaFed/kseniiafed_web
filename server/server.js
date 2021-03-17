@@ -43,7 +43,7 @@ const middleware = [
   bodyParser.json({ limit: '50mb', extended: true }),
   cookieParser()
 ]
-
+console.log('SERVER MIDDLEWARE')
 middleware.forEach((it) => server.use(it))
 
 // server.get('/api/k1/users', async (req, res) => {
@@ -56,6 +56,11 @@ middleware.forEach((it) => server.use(it))
 //   const { data: users } = await axios('https://jsonplaceholder.typicode.com/users')
 //   res.json(users.slice(0, +number))
 // })
+
+server.post('/api/v1/signInForm', (req, res) => {
+  console.log(req.body)
+  res.json({ status: 'ok' })
+})
 
 server.use('/api/', (req, res) => {
   res.status(404)
