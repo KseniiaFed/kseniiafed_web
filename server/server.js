@@ -8,10 +8,14 @@ import React from 'react'
 import axios from 'axios'
 
 import cookieParser from 'cookie-parser'
+import passport from 'passport'
+import jwt from 'jsonwebtoken'
 import config from './config'
 import Html from '../client/html'
 import mongooseConnect from './services/mongoose'
+import passportJWT from './services/passport'
 import interactionRoutes from './routes/interactions'
+import User from './models/user.model'
 
 mongooseConnect()
 
@@ -28,7 +32,7 @@ try {
   // })()
   console.log(Root)
 } catch (ex) {
-  console.log(' run yarn build:prod to enable ssr')
+  console.log('run yarn build:prod to enable ssr')
 }
 
 let connections = []
@@ -38,12 +42,15 @@ const server = express()
 
 const middleware = [
   cors(),
+  passport.initialize(),
   express.static(path.resolve(__dirname, '../dist/assets')),
   bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }),
   bodyParser.json({ limit: '50mb', extended: true }),
   cookieParser()
 ]
-console.log('SERVER MIDDLEWARE')
+
+passport.use('jwt', passportJWT.jwt)
+
 middleware.forEach((it) => server.use(it))
 
 // server.get('/api/k1/users', async (req, res) => {
@@ -57,9 +64,18 @@ middleware.forEach((it) => server.use(it))
 //   res.json(users.slice(0, +number))
 // })
 
-server.post('/api/v1/signInForm', (req, res) => {
+server.post('/api/v1/signInForm', async (req, res) => {
   console.log(req.body)
-  res.json({ status: 'ok' })
+  console.log('HELLO')
+  try {
+    const user = await User.findAndValidateUser(req.body)
+    const payload = { uid: user.id }
+    const token = jwt.sign(payload, config.secret, {expiresIn: '48h'})
+    res.json({ status: 'ok', token })
+  } catch (err) {
+    console.log(err)
+    res.json({ status: 'error', err })
+  }
 })
 
 server.use('/api/', (req, res) => {

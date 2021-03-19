@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt-nodejs'
 
 const userSchema = new mongoose.Schema(
   {
-    firstName: String,
-    lastName: String,
+    first_name: String,
+    last_name: String,
     email: {
       type: String,
       required: true,
@@ -33,14 +33,16 @@ userSchema.pre('save', async function (next) {
 
   return next()
 })
+
 userSchema.method({
   passwordMatches(password) {
+    console.log(bcrypt.hashSync(password))
     return bcrypt.compareSync(password, this.password)
   }
 })
 
 userSchema.statics = {
-  async findAndValidateUser({ email, password }) {
+  async findAndValidateUser ({ email, password }) {
     if (!email) {
       throw new Error('No Email')
     }
@@ -55,6 +57,7 @@ userSchema.statics = {
     if (!isPasswordOk) {
       throw new Error('PasswordIncorrect')
     }
+    return user
   }
 }
 export default mongoose.model('users', userSchema)

@@ -43,7 +43,7 @@ const Training = (props) => {
 
   useEffect(() => {
     dispatch(getCoursesData())
-  }, [])
+  }, [dispatch])
 
   if (props.isRequesting) {
     return 'Wait a sec, requesting...'
