@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { updateSignInForm, submitSignInForm, signIn } from '../redux/reducers/signInForm'
+import { updateSignInForm, signIn } from '../redux/reducers/signInForm'
 
 const validate = (values) => {
   const errors = {}
@@ -22,7 +22,6 @@ const validate = (values) => {
 }
 
 const SignIn = () => {
-  const formIsSubmitted = useSelector((s) => s.signInForm.submitted)
   const dispatch = useDispatch()
   return (
     <Formik
@@ -34,18 +33,13 @@ const SignIn = () => {
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(false)
         dispatch(updateSignInForm(values, null, 2))
-        dispatch(submitSignInForm(true))
         dispatch(signIn())
       }}
     >
       <Form>
         <div className="bg-login bg-cover">
           <div className="relative flex justify-center items-start bg-black bg-opacity-50 h-screen">
-            <div
-              className={`${
-                formIsSubmitted ? 'hidden' : 'block'
-              } mt-24 flex flex-col items-center justify-center w-3/4`}
-            >
+            <div className="mt-24 flex flex-col items-center justify-center w-3/4">
               <div className="bg-white bg-opacity-20 mb-8 rounded-sm w-full sm:w-96">
                 <h1 className="text-white text-center text-4xl px-4 py-2">SIGN IN</h1>
               </div>
@@ -93,7 +87,7 @@ const SignIn = () => {
                 </Link>
               </div>
             </div>
-            <div
+            {/* <div
               className={`${
                 formIsSubmitted ? 'block' : 'hidden'
               } relative flex justify-center self-start mt-24`}
@@ -103,7 +97,7 @@ const SignIn = () => {
                   <p>You are now signed in.</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Form>

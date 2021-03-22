@@ -6,7 +6,7 @@ import Testimonials from './units/testimonials'
 import Blog from './units/blog'
 import Subscription from './units/subscription'
 
-const Dummy = () => {
+const Home = () => {
   return (
     <div>
       <Head title="Hello" />
@@ -19,6 +19,6 @@ const Dummy = () => {
   )
 }
 
-Dummy.propTypes = {}
+Home.propTypes = {}
 
-export default React.memo(Dummy)
+export default React.memo(Home)

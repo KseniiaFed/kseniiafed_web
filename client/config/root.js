@@ -1,20 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { Switch, Route, Redirect, StaticRouter } from 'react-router-dom'
 
 import store, { history } from '../redux'
 
 import Header from '../components/units/header'
+import PrivateComponent from '../components/private-route'
 import Footer from '../components/units/footer'
 import About from '../components/about'
 import AboutTeam from '../components/aboutteam'
 import Training from '../components/training'
 import Events from '../components/events'
 import News from '../components/news'
-import DummyView from '../components/dummy-view'
+import Home from '../components/home'
 import NotFound from '../components/404'
 import SignUp from '../components/signUp'
 import SignIn from '../components/signIn'
@@ -24,25 +25,23 @@ import TrainingInfo from '../components/trainingInfo'
 import Startup from './startup'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
+  const signInForm = useSelector((s) => s.signInForm)
   const func = (props) =>
-    !!rest.user && !!rest.user.name && !!rest.token ? (
-      <Redirect to={{ pathname: '/' }} />
-    ) : (
+    !!signInForm.user && !!signInForm.token ? (
       <Component {...props} />
+    ) : (
+      <Redirect to={{ pathname: '/private' }} />
     )
   return <Route {...rest} render={func} />
 }
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
+  const signInForm = useSelector((s) => s.signInForm)
   const func = (props) =>
-    !!rest.user && !!rest.user.name && !!rest.token ? (
+    !!signInForm.user && !!signInForm.token ? (
       <Component {...props} />
     ) : (
-      <Redirect
-        to={{
-          pathname: '/login'
-        }}
-      />
+      <Redirect to={{ pathname: '/sign-in' }} />
     )
   return <Route {...rest} render={func} />
 }
@@ -84,7 +83,8 @@ const RootComponent = (props) => {
           <Header />
           <div className="mt-20">
             <Switch>
-              <Route exact path="/" component={() => <DummyView />} />
+              {/* <OnlyAnonymousRoute exact path="/sign-in" component={() => <Home />} /> */}
+              <Route exact path="/" component={() => <Home />} />
               <Route exact path="/about" component={() => <About />} />
               <Route exact path="/aboutteam" component={() => <AboutTeam />} />
               <Route exact path="/training" component={() => <Training />} />
@@ -94,7 +94,7 @@ const RootComponent = (props) => {
               <Route exact path="/sign-in/sign-up" component={() => <SignUp />} />
               <Route exact path="/contact" component={() => <Contact />} />
               <Route exact path="/training-info" component={() => <TrainingInfo />} />
-              <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
+              <PrivateRoute exact path="/private" component={() => <PrivateComponent />} />
               <Route component={() => <NotFound />} />
             </Switch>
           </div>

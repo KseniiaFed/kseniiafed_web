@@ -1,11 +1,9 @@
 import express from 'express'
 import path from 'path'
 import cors from 'cors'
-import bodyParser from 'body-parser'
 import sockjs from 'sockjs'
 import { renderToStaticNodeStream } from 'react-dom/server'
 import React from 'react'
-import axios from 'axios'
 
 import cookieParser from 'cookie-parser'
 import passport from 'passport'
@@ -14,6 +12,7 @@ import config from './config'
 import Html from '../client/html'
 import mongooseConnect from './services/mongoose'
 import passportJWT from './services/passport'
+import signInForm from './middleware/signInForm'
 import interactionRoutes from './routes/interactions'
 import User from './models/user.model'
 
@@ -44,8 +43,8 @@ const middleware = [
   cors(),
   passport.initialize(),
   express.static(path.resolve(__dirname, '../dist/assets')),
-  bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }),
-  bodyParser.json({ limit: '50mb', extended: true }),
+  express.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }),
+  express.json({ limit: '50mb', extended: true }),
   cookieParser()
 ]
 
@@ -64,14 +63,35 @@ middleware.forEach((it) => server.use(it))
 //   res.json(users.slice(0, +number))
 // })
 
+server.get('/api/v1/user-info', signInForm(['admin']), (req, res) => {
+  res.json({ status: '123' })
+})
+
+server.get('/api/v1/signInForm', async (req, res) => {
+  try {
+    const jwtUser = jwt.verify(req.cookies.token, config.secret)
+    const user = await User.findById(jwtUser.uid)
+
+    const payload = { uid: user.id }
+    const token = jwt.sign(payload, config.secret, { expiresIn: '48h' })
+    delete user.password
+    res.cookie('token', token, { maxAge: 1000 * 60 * 60 * 48 })
+    res.json({ status: 'ok', token, user })
+  } catch (err) {
+    console.log(err)
+    res.json({ status: 'error', err })
+  }
+})
+
 server.post('/api/v1/signInForm', async (req, res) => {
   console.log(req.body)
-  console.log('HELLO')
   try {
     const user = await User.findAndValidateUser(req.body)
     const payload = { uid: user.id }
-    const token = jwt.sign(payload, config.secret, {expiresIn: '48h'})
-    res.json({ status: 'ok', token })
+    const token = jwt.sign(payload, config.secret, { expiresIn: '48h' })
+    delete user.password
+    res.cookie('token', token, { maxAge: 1000 * 60 * 60 * 48 })
+    res.json({ status: 'ok', token, user })
   } catch (err) {
     console.log(err)
     res.json({ status: 'error', err })
