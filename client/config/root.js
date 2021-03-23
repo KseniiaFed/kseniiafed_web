@@ -28,9 +28,9 @@ const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const signInForm = useSelector((s) => s.signInForm)
   const func = (props) =>
     !!signInForm.user && !!signInForm.token ? (
-      <Component {...props} />
-    ) : (
       <Redirect to={{ pathname: '/private' }} />
+    ) : (
+      <Component {...props} />
     )
   return <Route {...rest} render={func} />
 }
@@ -83,14 +83,13 @@ const RootComponent = (props) => {
           <Header />
           <div className="mt-20">
             <Switch>
-              {/* <OnlyAnonymousRoute exact path="/sign-in" component={() => <Home />} /> */}
               <Route exact path="/" component={() => <Home />} />
               <Route exact path="/about" component={() => <About />} />
               <Route exact path="/aboutteam" component={() => <AboutTeam />} />
               <Route exact path="/training" component={() => <Training />} />
               <Route exact path="/events" component={() => <Events />} />
               <Route exact path="/news" component={() => <News />} />
-              <Route exact path="/sign-in" component={() => <SignIn />} />
+              <OnlyAnonymousRoute exact path="/sign-in" component={() => <SignIn />} />
               <Route exact path="/sign-in/sign-up" component={() => <SignUp />} />
               <Route exact path="/contact" component={() => <Contact />} />
               <Route exact path="/training-info" component={() => <TrainingInfo />} />
