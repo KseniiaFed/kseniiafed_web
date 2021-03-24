@@ -87,17 +87,6 @@ const SignIn = () => {
                 </Link>
               </div>
             </div>
-            {/* <div
-              className={`${
-                formIsSubmitted ? 'block' : 'hidden'
-              } relative flex justify-center self-start mt-24`}
-            >
-              <div className="flex flex-col h-2/5 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg rounded-lg bg-white bg-opacity-20">
-                <div className="flex flex-col space-y-4 pt-12 pb-16 px-12 text-white font-bold">
-                  <p>You are now signed in.</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </Form>

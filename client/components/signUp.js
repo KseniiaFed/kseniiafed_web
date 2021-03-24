@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { updateSignUpForm, submitSignUpForm } from '../redux/reducers/signUpForm'
+import { updateSignUpForm, submitSignUpForm, signUp } from '../redux/reducers/signUpForm'
 
 const validate = (values) => {
   const errors = {}
@@ -53,10 +53,10 @@ const SignUp = () => {
       }}
       validate={validate}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(JSON.stringify(values, null, 2))
         setSubmitting(false)
         dispatch(updateSignUpForm(values))
         dispatch(submitSignUpForm(true))
+        dispatch(signUp())
       }}
     >
       <Form>

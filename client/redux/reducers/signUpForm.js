@@ -1,9 +1,10 @@
 const UPDATE_SIGNUP_FORM = 'UPDATE_SIGNUP_FORM'
 const SIGNUP_FORM_SUBMITTED = 'SIGNUP_FORM_SUBMITTED'
+const SIGNUP = 'SIGNUP'
 
 const initialState = {
-  firstName: '',
-  lastName: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: '',
   passwordVerified: '',
@@ -15,11 +16,17 @@ export default (state = initialState, action) => {
     case UPDATE_SIGNUP_FORM: {
       return {
         ...state,
-        firstName: action.values.firstName,
-        lastName: action.values.lastName,
+        first_name: action.values.firstName,
+        last_name: action.values.lastName,
         email: action.values.email,
         password: action.values.password,
         passwordVerified: action.values.passwordVerified
+      }
+    }
+    case SIGNUP: {
+      return {
+        ...state,
+        user: action.user
       }
     }
     case SIGNUP_FORM_SUBMITTED: {
@@ -39,4 +46,26 @@ export function updateSignUpForm(values) {
 
 export function submitSignUpForm(submitted) {
   return { type: SIGNUP_FORM_SUBMITTED, submitted }
+}
+
+export function signUp() {
+  return (dispatch, getState) => {
+    const { first_name, last_name, email, password } = getState().signInForm
+    fetch('/api/v1/signUpForm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        first_name,
+        last_name,
+        email,
+        password
+      })
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        dispatch({ type: SIGNUP, user: data.user })
+      })
+  }
 }

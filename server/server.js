@@ -14,6 +14,7 @@ import mongooseConnect from './services/mongoose'
 import passportJWT from './services/passport'
 import signInForm from './middleware/signInForm'
 import interactionRoutes from './routes/interactions'
+import userController from './controllers/user.controller'
 import User from './models/user.model'
 
 mongooseConnect()
@@ -63,6 +64,18 @@ middleware.forEach((it) => server.use(it))
 //   res.json(users.slice(0, +number))
 // })
 
+// server.get('/api/v1/signUpForm', userController.saveUser)
+
+server.post('/api/v1/signUpForm', (req, res) => {
+  try {
+    userController.saveUser
+    res.json({ status: 'ok' })
+  } catch (err) {
+    console.log(err)
+    res.json({ status: 'error', err })
+  }
+})
+
 server.get('/api/v1/user-info', signInForm(['admin']), (req, res) => {
   res.json({ status: '123' })
 })
@@ -84,13 +97,15 @@ server.get('/api/v1/signInForm', async (req, res) => {
 })
 
 server.post('/api/v1/signInForm', async (req, res) => {
-  console.log(req.body)
   try {
     const user = await User.findAndValidateUser(req.body)
     const payload = { uid: user.id }
     const token = jwt.sign(payload, config.secret, { expiresIn: '48h' })
     delete user.password
     res.cookie('token', token, { maxAge: 1000 * 60 * 60 * 48 })
+    connections.forEach(c => {
+      c.write(JSON.stringify({ type: 'SHOW_MESSAGE', message: `${user.email} Now Logged In`}))
+    })
     res.json({ status: 'ok', token, user })
   } catch (err) {
     console.log(err)
@@ -105,7 +120,7 @@ server.use('/api/', (req, res) => {
 
 const [htmlStart, htmlEnd] = Html({
   body: 'separator',
-  title: 'Skillset - Level Up Your Knowledge'
+  title: 'CourseUP - Level Up Your Knowledge'
 }).split('separator')
 
 server.use('/interactions/', interactionRoutes)
