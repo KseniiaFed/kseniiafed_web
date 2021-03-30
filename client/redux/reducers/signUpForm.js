@@ -50,7 +50,8 @@ export function submitSignUpForm(submitted) {
 
 export function signUp() {
   return (dispatch, getState) => {
-    const { first_name, last_name, email, password } = getState().signInForm
+    const { first_name, last_name, email, password } = getState().signUpForm
+    console.log(getState().signUpForm)
     fetch('/api/v1/signUpForm', {
       method: 'POST',
       headers: {

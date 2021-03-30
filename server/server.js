@@ -66,9 +66,10 @@ middleware.forEach((it) => server.use(it))
 
 // server.get('/api/v1/signUpForm', userController.saveUser)
 
-server.post('/api/v1/signUpForm', (req, res) => {
+server.post('/api/v1/signUpForm', async (req, res) => {
+  console.log('New user: ', req.body)
   try {
-    userController.saveUser
+    await User.create(req.body)
     res.json({ status: 'ok' })
   } catch (err) {
     console.log(err)

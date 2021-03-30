@@ -8,7 +8,7 @@ exports.saveUser = async (req, res) => {
     password: req.body.password
   })
 
-  await user.save({})
+  await user.save()
   res.status(200)
   res.json(user)
 }
