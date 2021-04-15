@@ -16,6 +16,8 @@ import signInForm from './middleware/signInForm'
 import interactionRoutes from './routes/interactions'
 import userController from './controllers/user.controller'
 import User from './models/user.model'
+import axios from 'axios'
+import { readFile, writeFile } from 'fs'
 
 mongooseConnect()
 
@@ -64,7 +66,6 @@ middleware.forEach((it) => server.use(it))
 //   res.json(users.slice(0, +number))
 // })
 
-// server.get('/api/v1/signUpForm', userController.saveUser)
 
 server.post('/api/v1/signUpForm', async (req, res) => {
   console.log('New user: ', req.body)

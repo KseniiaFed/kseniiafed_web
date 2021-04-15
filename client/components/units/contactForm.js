@@ -13,13 +13,13 @@ const validate = (values) => {
 
   if (!values.name) {
     errors.name = 'This field is required'
-  } else if (values.name.length > 25) {
+  } else if (!/^.{1,25}$/i.test(values.name)) {
     errors.name = 'Must be less than 25 characters'
   }
 
   if (!values.email) {
     errors.email = 'This field is required'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (!/^[A-z0-9._%+-]+@[A-z0-9.+-]+\.[A-z]{2,4}$/i.test(values.email)) {
     errors.email = 'Please input valid email'
   }
 
@@ -37,6 +37,7 @@ const ContactForm = () => {
   const dispatch = useDispatch()
   const [submitButton, setSubmitButton] = useState(unclickable)
   const [toggleStyle, setToggleStyle] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   const formikRef = useRef()
 
@@ -56,6 +57,9 @@ const ContactForm = () => {
     },
     validate,
     onSubmit: (values) => {
+      if (!toggleStyle) {
+        setVisible(!visible)
+      }
       console.log(JSON.stringify(values, null, 2))
       dispatch(submitForm(true))
     }
@@ -203,6 +207,9 @@ const ContactForm = () => {
             <span className="text-xs text-gray-700">
               I agree to the Privacy Policy and Cookie Policy
             </span>
+          </div>
+          <div>
+            <span className={`${ visible ? 'block' : 'hidden'} text-green-600`}>You must agree to submit</span>
           </div>
           <div className="relative lg:pt-2 flex justify-end w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg ">
             <button type="submit" className={submitButton}>

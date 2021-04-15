@@ -14,9 +14,9 @@ const Contact = () => {
           <div className="space-y-2">
             <h3 className="text-2xl text-gray-900">Company Name</h3>
             <p className="text-gray-500 text-xl">
-              37 the Cedars, Abberley,
+              59 the Black Oaks, Downton,
               <br />
-              Shanganagh Road, Killiney,
+              Rocky Road, Foxrock,
               <br />
               Co. Dublin, Ireland, A96 X662,
             </p>

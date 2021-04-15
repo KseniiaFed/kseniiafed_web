@@ -27,9 +27,9 @@ const ImageSlider = () => {
   const swipeSlideLeft = () => {
     setActiveIndex(activeIndex === 0 ? slides.length - 1 : activeIndex - 1)
   }
-  const dotHandler = (i) => {
+  const dotHandler = React.useCallback((i) => {
     setActiveIndex(i)
-  }
+  }, [])
 
   return (
     <div className="relative h-80">
