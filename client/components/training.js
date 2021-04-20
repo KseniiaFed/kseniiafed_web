@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getCoursesData } from '../redux/reducers/training'
 import Subscription from './units/subscription'
+import useScroll from './units/useScroll'
 
 const CourseCard = ({ name, img, date, text }) => {
   return (
@@ -40,6 +41,8 @@ const CourseCard = ({ name, img, date, text }) => {
 const Training = (props) => {
   const courseList = useSelector((s) => s.training.courses)
   const dispatch = useDispatch()
+  const {scrollX, scrollY, scrollDirection} = useScroll()
+  console.log({ scrollX, scrollY, scrollDirection })
 
   useEffect(() => {
     dispatch(getCoursesData())
@@ -84,10 +87,10 @@ const Training = (props) => {
           </button>
         </div>
         <div className="self-center grid grid-cols-1 gap-y-8 sm:gap-x-12 sm:grid-cols-2 md:grid-cols-3 sm:gap-y-28">
-          {courseList.map((it) => {
+          {courseList.map((it, index) => {
             return (
               <CourseCard
-                key={it.id}
+                key={index}
                 name={it.title}
                 img=""
                 date="January 27th 2021"
@@ -102,8 +105,8 @@ const Training = (props) => {
           </h1>
           <div className="self-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 sm:gap-x-12 sm:gap-y-28">
             Events here
-            {courseList.map((it) => {
-              return <div key="id">{it.title}</div>
+            {courseList.map((it, index) => {
+              return <div key={index}>{it.title}</div>
             })}
           </div>
         </div>
