@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUsername, getUserData } from '../redux/reducers/events'
+import { getCoursesData } from '../redux/reducers/training'
 
 
 const Events = (props) => {
@@ -8,6 +9,10 @@ const Events = (props) => {
   const name = useSelector((s) => s.events.name)
   const repoList = useSelector((s) => s.events.list)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCoursesData())
+  }, [dispatch])
 
   if (props.isRequesting) {
     return 'Wait a sec, requesting...'
