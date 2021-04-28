@@ -29,6 +29,10 @@ const validate = (values) => {
     errors.message = 'Exceeded message length limit'
   }
 
+  if (!values.toggle) {
+      errors.toggle = 'You must agree to submit'
+    }
+
   return errors
 }
 
@@ -53,7 +57,8 @@ const ContactForm = () => {
       email: sessionStorage.getItem(sessionEmail) || '',
       phone: sessionStorage.getItem(sessionPhone) || '',
       company: sessionStorage.getItem(sessionCompany) || '',
-      message: sessionStorage.getItem(sessionMessage) || ''
+      message: sessionStorage.getItem(sessionMessage) || '',
+      toggle: false
     },
     validate,
     onSubmit: (values) => {
@@ -76,7 +81,7 @@ const ContactForm = () => {
       formik.values.email.length &&
       formik.values.message.length &&
       Object.keys(formik.errors).length === 0 &&
-      toggleStyle
+      formik.values.toggle
     ) {
       setSubmitButton(clickable)
     }
@@ -191,6 +196,7 @@ const ContactForm = () => {
                   type="checkbox"
                   name="toggle"
                   id="toggle"
+                  {...formik.getFieldProps('toggle')}
                   onClick={handleToggleStyle}
                   className={`${
                     toggleStyle ? 'border-green-600 right-0' : null
@@ -207,9 +213,11 @@ const ContactForm = () => {
             <span className="text-xs text-gray-700">
               I agree to the Privacy Policy and Cookie Policy
             </span>
-          </div>
-          <div>
-            <span className={`${ visible ? 'block' : 'hidden'} text-green-600`}>You must agree to submit</span>
+            <div className="px-12 h-6 mt-2">
+              {formik.touched.toggle && formik.errors.toggle ? (
+                <span className="font-bold text-green-600">{formik.errors.toggle}</span>
+              ) : null}
+            </div>
           </div>
           <div className="relative lg:pt-2 flex justify-end w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg ">
             <button type="submit" className={submitButton}>
@@ -222,7 +230,7 @@ const ContactForm = () => {
         <div className="mt-12 flex flex-col h-2/5 w-5/6 sm:w-3/4 max-w-xl lg:w-full lg:max-w-lg border rounded-lg bg-green-600">
           <div className="flex flex-col space-y-4 pt-12 pb-16 px-12 text-white font-bold">
             <p>Form submitted successfully!</p>
-            <p>A confirmation email was sent to {formik.values.email}</p>
+            <p>Thank you for contacting us, we will be in touch shortly.</p>
           </div>
         </div>
       </div>
